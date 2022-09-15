@@ -4,8 +4,9 @@ import '../styles/navigateur.css'
 const Navigation = () => {
   return (
     <div className='Navigation'>
+    <Link to='/'> <h1 id='logo'>KARIM DECO</h1></Link>
     <ul className='navigation-ul'>
-      <Link to='/'> <li id='logo'>KARIM DECO</li></Link>
+      
 
         <Link to='/'><li>Accuiel</li></Link>
         

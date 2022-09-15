@@ -1,0 +1,16 @@
+.footer{
+    margin-top: 0%;
+    padding-top: 0%;
+    width: 100%;
+    height: 4rem;
+    justify-items: center;
+   background-color:  rgba(180, 180, 180, 0.836);
+   color: rgb(36, 34, 34);
+     display: flex;
+     justify-content: center;
+     position: absolute;
+   }
+   h4{
+    margin-top: 10px;
+    font-size: 20px;
+   }

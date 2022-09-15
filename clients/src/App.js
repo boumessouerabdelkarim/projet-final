@@ -1,6 +1,7 @@
 
 import './App.css';
 import { Routes, Route } from "react-router-dom";
+import Footer from './component/Footer'
 import Food_and_Drink from './Pages/Foood&Drink/Food_and_Drink';
 import Vie_Nocturne from './Pages/vie_nocturne/Vie_Nocturne';
 import Beach_bars from  './Pages/vie_nocturne/Beach_bars'
@@ -76,7 +77,7 @@ function App() {
       
       </Routes>
       </div>
-    
+    <Footer/>
     </div>
     
     

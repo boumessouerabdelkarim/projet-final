@@ -5,6 +5,6 @@
   font-family:Arial, Helvetica, sans-serif;
 }
 .container{
-  min-height:calc(100vh - 80px);
-  background-color: #c8c8ce;
+  min-height:calc(100vh - 8rem);
+  background-color: #ffffff;
 }
