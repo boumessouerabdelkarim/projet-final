@@ -13,7 +13,11 @@ import Hotels from './Pages/hotel/Hotels'
 import Grand_hotel from './Pages/hotel/Grand_hotel'
 import Maison_hote from './Pages/hotel/Maison_hote'
 import Hotel_ville from './Pages/hotel/Hotel_ville'
-import Autre from './Pages/Autre'
+import Autre from './Pages/autres/Autre'
+import Clubs from './Pages/autres/Clubs'
+import Musees from './Pages/autres/Musees'
+import Agence_voyage from './Pages/autres/Agence_voyage'
+import Aire_pique_nique from './Pages/autres/Aire_pique_nique'
 import Navigation from './component/Navigation';
 
 
@@ -35,7 +39,13 @@ function App() {
       <Routes>
         <Route path="/" element={ <Accuiel/>} />
         /******************les Routes de Autre*********************/
-        <Route path="/Autres" element={<Autre />} />
+        <Route path="/Autres" element={<Autre />} />     
+           <Route path="/Autres/clubs" element={<Clubs/>} />
+        <Route path="/Autres/agence_voyage" element={<Agence_voyage />} />
+
+        <Route path="/Autres/musees" element={<Musees />} />
+        <Route path="/Autres/aire_pique_nique" element={<Aire_pique_nique />} />
+
         
         / ******************les Routes de Hotel*********************/
         <Route path="/Hotel" element={<Hotels />} />
