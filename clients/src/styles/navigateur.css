@@ -1,0 +1,53 @@
+@import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
+.Navigation{
+    width: 100%;
+    background-color:rgba(255, 255, 255, 0.836);
+    font-family:'Lobster&display=swap', Arial, sans-serif
+}
+.navigation-ul{
+    /* position: fixed; */
+    margin-top: 0%;
+    padding-top: 0%;
+   
+    list-style: none;
+   margin-inline: auto;
+    width: 90vw;
+    height: 80px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.Navigation a {
+    color: rgb(36, 34, 34);
+    font: bold;
+    font-size: 1rem;
+    font-weight: 700;
+    
+    text-decoration: none;
+    position: relative;
+}
+.Navigation img{
+  
+    width: 70px;
+    height: 90px;
+}
+.under-list{
+    position: absolute;
+    display: none;
+    background-color:rgba(255, 255, 255, 0.836);
+    list-style: none;
+    left: -10px;
+    flex-direction:column;
+    align-items: flex-start;
+    padding: 20px 5px;
+    width: 300px;
+}
+.under-list li{
+    margin-bottom: 10px;
+    margin-left: 10px;
+    border-bottom: 2px solid rgb(31, 30, 30);
+}
+
+/* afficher underlist when we hover the li */
+.Navigation a:hover .under-list{
+    display: flex;}
