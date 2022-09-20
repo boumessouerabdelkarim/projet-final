@@ -1,10 +1,11 @@
 const ObjectID = require("mongoose").Types.ObjectId;
-const UserModel = require("../models/user");
+const User = require("../models/user");
 
 
 // get all user
 module.exports.getAllUsers = async (req, res) => {
-    const users = await UserModel.find().select("-password");
+    const users = await User.find()
+    // .select("-password");
     res.status(200).json(users);
   };
   
@@ -13,7 +14,7 @@ module.exports.getAllUsers = async (req, res) => {
     if (!ObjectID.isValid(req.params.id))
       return res.status(400).send("ID unknown : " + req.params.id);
   
-    UserModel.findById(req.params.id, (err, docs) => {
+    User.findById(req.params.id, (err, docs) => {
       if (!err) res.send(docs);
       else console.log("ID unknown : " + err);
     }).select("-password");
@@ -24,7 +25,7 @@ module.exports.getAllUsers = async (req, res) => {
       return res.status(400).send("ID unknown : " + req.params.id);
   
     try {
-     const result =await UserModel.findOneAndUpdate(
+     const result =await User.findOneAndUpdate(
         { _id: req.params.id },
         {
           $set: {
@@ -51,7 +52,7 @@ module.exports.getAllUsers = async (req, res) => {
       return res.status(400).send("ID unknown : " + req.params.id);
   
     try {
-      await UserModel.remove({ _id: req.params.id }).exec();
+      await User.remove({ _id: req.params.id }).exec();
       res.status(200).json({ message: "Successfully deleted. " });
     } catch (err) {
       return res.status(500).json({ message: err });

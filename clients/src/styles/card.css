@@ -1,0 +1,54 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@1,100&display=swap');
+.card{
+width: 90%;
+height: 15rem;
+    margin: 1rem auto;
+    font-family: 'Roboto';
+
+    -webkit-box-shadow: 0px 10px 13px -7px #000000, 2px 4px 17px 5px rgba(17,4,122,0.23); 
+    box-shadow: 0px 10px 13px -7px #000000, 2px 4px 17px 5px rgba(17,4,122,0.23);
+    display: flex;
+
+}
+
+.content h1 {font-size: 3rem;
+    text-transform: uppercase;}
+
+ img{
+    width: 30%;
+    
+   margin: 1rem 2rem ;
+    border-radius: 1rem;
+    box-shadow:  0px 0px 14px 1px #80808091;
+    
+}
+.content{
+    display: flex;
+    flex-direction: column;
+    justify-content:space-evenly;
+    width: 50vw;
+    border-left: 1px solid #000;
+}
+.info{
+    display: flex;
+    border: #000 1px solid ;
+    justify-content: flex-start;
+    
+    margin: .3rem ;
+
+}
+h3{color: #1d9c3b !important;}
+h1,h2,h3{
+    padding: 0;
+    margin-left: .2rem;
+    font-family: 'Roboto', sans-serif;
+}
+.menu{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 30vw;
+    border-left: 1px solid #000;
+
+
+}

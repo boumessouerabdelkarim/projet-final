@@ -1,12 +1,33 @@
 const express=require('express')
 const User = require('../models/user');
 const UserRoute=express.Router()
-const authController = require("../controller/auth.controller");
-const userController = require("../controller/user.controller");
+const controllers = require("../controllers/user");
+const userController=require("../controllers/user.controller");
+const {
+  loginRules,
+  registerRules,
+  validation,
+} = require("../middleware/validator");
+
+const isAuth = require("../middleware/passport");
 // auth
-UserRoute.post("/register", authController.signUp);
-UserRoute.post("/login", authController.signIn);
-UserRoute.get("/logout", authController.logout);
+UserRoute.post("/register", registerRules(), validation, controllers.register);
+
+//@method POST
+//@desc POST A USER
+// @PATH  http://localhost:5000/user/login
+// @Params  Body
+// register
+// login
+UserRoute.post("/login", loginRules(), validation, controllers.login);
+
+//@method POST
+//@desc GET A USER
+// @PATH  http://localhost:5000/user/current
+// @Params  Body
+// get current user
+UserRoute.get("/current", isAuth(), controllers.current);
+
 
 // user DB
 UserRoute.get("/", userController.getAllUsers);

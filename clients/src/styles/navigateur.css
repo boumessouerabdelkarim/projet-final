@@ -1,12 +1,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
 .Navigation{
     width: 100%;
-    background-color: #e4e4e4;
-    font-family: 'Montserrat', sans-serif;
+    
+    background-color: #ebebeb;
+    
     display: flex;
     padding-top: .5em;
 	padding-bottom: .5em;
-	
+	text-transform: uppercase;
 }
 .navigation-ul{
     /* position: fixed; */
@@ -16,7 +17,7 @@
     list-style: none;
    margin-inline: auto;
     width: 100vw;
-    height: 4rem;
+    height: 3rem;
     display: flex;
     
     align-items: center;
@@ -46,13 +47,14 @@ a:hover {
 .under-list{
     position: absolute;
     display: none;
-    background-color:transparent;
+    background-color: #ebebeb;
     list-style: none;
     left: -10px;
     flex-direction:column;
     align-items: flex-start;
     padding: 20px 5px;
     width: 15rem;
+    border-radius: 5px;
 }
 .under-list li{
     margin-bottom: 1rem;
