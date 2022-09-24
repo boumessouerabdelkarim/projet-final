@@ -3,7 +3,9 @@
     width: 100%;
     
     background-color: #ebebeb;
-    
+    z-index: 99999999999999;
+    position: sticky;
+    top: 0;
     display: flex;
     padding-top: .5em;
 	padding-bottom: .5em;
@@ -23,8 +25,9 @@
     align-items: center;
     margin-left: 5rem;
 }
-h1{
+.navigation h1{
     margin-left: 1rem;
+    
 }
 .Navigation a {
     color: #34495e;
@@ -35,7 +38,7 @@ h1{
     text-decoration: none;
     position: relative;
 }
-a:hover {
+ .navigation a:hover {
 	color: #718daa;
 }
 

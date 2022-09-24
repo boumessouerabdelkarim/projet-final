@@ -51,7 +51,7 @@ EventRoute.put('/update/:id',async(req,res)=>{
           { $set: { ...req.body } },
           {new:true} 
         );
-        res.send({ Event: result, msg: "event updated" });
+        res.send({ Events: result, msg: "event updated" });
       } catch (error) {
         res.status(400).send({ msg: "can not modify the event" });
         console.log(error);

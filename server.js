@@ -17,7 +17,7 @@ app.use(cors());
 //routes
 app.use('/user',require('./routes/UserRoute'))
 app.use('/restaurant',require('./routes/Rest.Route'));
-app.use('/envenements',require('./routes/EventRoute'))
+app.use('/evenements',require('./routes/EventRoute'))
 app.use('/hotels',require('./routes/HotelRoute'))
 app.use('/etablissements',require('./routes/Etab.Route'))
 

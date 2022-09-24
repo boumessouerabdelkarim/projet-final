@@ -1,0 +1,58 @@
+.card-etab{
+    margin:  10px auto;
+    width: 95%;
+    height: 10rem;
+    display: flex;
+    background-color: rgb(253, 253, 253);
+    align-items: center;
+    position: relative;
+    border-radius: 1rem;
+    box-shadow: 0px 5px 10px #1687d933;
+    border: 1px solid rgb(137, 137, 255);
+}
+
+.log-etab {
+    margin: 2em;
+    width: 25%;
+    height: 90%; 
+    
+    border-radius: 50%;
+}
+.etab-description{
+width: 60% ;
+
+margin-left: 0.5em;
+display: flex;
+flex-direction: column;
+
+}
+.etab-description h1,h3{
+    font: 0.5em ;
+    color: #000;
+}
+.etab-edited{
+    display: flex;
+    align-items: center;
+    width: 15%;
+    
+}
+
+.button_supp{
+    border-radius: 1rem;
+    border: none;
+    margin-left: 2em;
+    align-items: center;
+    width: 3rem;
+    height: 3rem;
+    color: red;
+    
+}
+#button_edit{
+    border-radius: 1rem;
+    border: none;
+    align-items: center;
+    width: 3rem;
+    height: 3rem;
+    color: green;
+    
+}

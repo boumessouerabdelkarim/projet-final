@@ -3,12 +3,12 @@ const schema = mongoose.Schema;
 
 const eventschema = new schema({
   type: { type: String, required: true },
-  titre: {
+  name: {
     type: String,
     required: true,
     minLength: 4,
   },
-  prix: { type: String, required: false },
+  prix: { type: String, required: true },
 
   details: { type: String, required: false },
 
@@ -30,15 +30,18 @@ const eventschema = new schema({
     type: String,
     required: true,
   },
-  affiche: {
+  logo: {
     type: String,
+    default: '../uplade/event.png',
     required: false,
   },
   organization: {
     type: String,
     required: true,
   },
-  telephone: {type: String, required:false, }
+  telephone: {type: String, required:false, },
+  administrative: {type:String, required:true,default:"admin"}
+
 },{timestamps:true});
 
 const Event = mongoose.model("Event", eventschema);

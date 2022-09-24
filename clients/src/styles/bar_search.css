@@ -21,7 +21,7 @@ select,input[type=text]{
     border: 1px solid #ccc;
 }
 
-button{
+.search button{
     background-color: green;
     color:white;
     margin-top: 0.5rem;
@@ -32,7 +32,7 @@ button{
     border-radius: 0.5em;
     font-size: larger;
 }
-span{
+ .form-group span{
     font-size: 1.5em;
 }
 

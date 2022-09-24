@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 const schema = mongoose.Schema;
 const restaurantschema = new schema({
   type: { type: String, required: true },
-  nom: {
+  name: {
     type: String,
     required: true,
     unique: true,
@@ -12,7 +12,7 @@ const restaurantschema = new schema({
   },
   logo: {
     type: String,
-    default: "",
+    default: "../uplade/resto.jpg",
   },
 
   commodites: {
@@ -25,16 +25,17 @@ const restaurantschema = new schema({
     minLength: 10,
   },
   alcool: { type: String, required: false },
-  cuisine: {
-    type: [String],
-    required: false,
+  specialite: {
+    type: String,
+    required: true,
   },
   description: { type: String, required: true },
 
   photos: { type: [String], required: false },
   Notes: { type: Number, min: 0, max: 5, required: false },
   facebook: { type: String, required: false },
-  heure_ouverture:{type: String, required: false}
+  heure_ouverture:{type: String, required: false},
+  administrative: {type:String, required:true,default:"admin"}
 },{timestamps:true}
 );
 

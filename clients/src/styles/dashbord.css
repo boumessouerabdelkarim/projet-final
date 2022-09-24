@@ -1,0 +1,51 @@
+.wrapper{
+    display: flex;
+    position: relative;
+  }
+  .dash_outlet{
+    width: 80vw;
+  }
+  .wrapper .sidebar{
+    width: 20vw;
+    height: 100vh;
+    background: #ebebeb;
+    padding: 30px 0px;
+    
+    
+  }
+  
+  .wrapper .sidebar h2{
+    color:#ffffff;
+    text-transform: uppercase;
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 2rem;
+    font-weight: 900;
+  }
+  
+  .wrapper .sidebar ul li{
+    padding: 15px;
+    border-bottom: 1px solid #bdb8d7;
+    font-size: 1rem;
+    font-weight: 700;
+    border-bottom: 2px solid rgba(0,0,0,0.05);
+    border-top: 2px solid rgba(255,255,255,0.05);
+  }    
+  
+  .wrapper .sidebar ul li a{
+    color: #34495e;
+    display: block;
+    
+  }
+  
+  .wrapper .sidebar ul li a .fas{
+    width: 25px;
+  }
+  
+  .wrapper .sidebar ul li:hover{
+    background-color: #d6d5dd;
+  }
+      
+  .wrapper .sidebar ul li:hover a{
+    color: #34495e;
+  }

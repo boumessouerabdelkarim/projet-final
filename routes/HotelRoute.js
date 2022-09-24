@@ -50,7 +50,7 @@ HotelRoute.put('/update/:id',async(req,res)=>{
           { $set: { ...req.body } },
           {new:true} 
         );
-        res.send({ hotel: result, msg: "hotel updated" });
+        res.send({ hotels: result, msg: "hotel updated" });
       } catch (error) {
         res.status(400).send({ msg: "can not modify the hotel" });
         console.log(error);

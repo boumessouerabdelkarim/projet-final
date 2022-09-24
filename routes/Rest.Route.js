@@ -50,7 +50,7 @@ RestRoute.put('/update/:id',async(req,res)=>{
           { $set: { ...req.body } },
           {new:true} 
         );
-        res.send({ rest: result, msg: "restaurant updated" });
+        res.send({ rests: result, msg: "restaurant updated" });
       } catch (error) {
         res.status(400).send({ msg: "can not modify the restaurant" });
         console.log(error);

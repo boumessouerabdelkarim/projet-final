@@ -66,7 +66,7 @@ exports.login = async (req, res) => {
     // send the user
     res
       .status(200)
-      .send({ user: searchedUser, msg: "success", token: ` Bearer ${token}` });
+      .send({ user: searchedUser, msg: "success", token: `Bearer ${token}` });
   } catch (error) {
     console.log(error);
     res.status(500).send({ msg: "can not get the user" });

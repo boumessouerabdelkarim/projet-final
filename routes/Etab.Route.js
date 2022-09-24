@@ -4,7 +4,7 @@ const EtabRoute=express.Router()
 //get all etab
 EtabRoute.get('/',async(req,res)=>{
     try {let result=await etab.find()
-        res.send({hotels:result,msg:'get all etab'})
+        res.send({etabs:result,msg:'get all etab'})
     } catch (error) {
         res.status(400).send({msg:'error getting etab'})
   console.log(error)  
@@ -13,14 +13,14 @@ EtabRoute.get('/',async(req,res)=>{
 //get etab by id
 EtabRoute.get('/:id',async(req,res)=>{
     try {let result=await etab.findById(req.params.id);
-        res.send({hotels:result,msg:'get all etab'})
+        res.send({etabs:result,msg:'get all etab'})
     } catch (error) {
         res.status(400).send({msg:'error getting etab'})
   console.log(error)  }})
   //get etab by type
   EtabRoute.get('/bytype/:type',async(req,res)=>{
     try {let result=await etab.find({type:req.params.type});
-        res.send({hotels:result,msg:'get all etab by type'});}
+        res.send({etabs:result,msg:'get all etab by type'});}
         catch (error) {
             res.status(400).send({msg:'error getting etab by type'})
             console.log(error)
@@ -30,7 +30,7 @@ EtabRoute.get('/:id',async(req,res)=>{
 EtabRoute.post('/add',async(req,res) => {
 try {let newrest=new etab(req.body);
     let result=await newrest.save();
-    res.send({hotels:result,msg:'add new etab'})
+    res.send({etabs:result,msg:'add new etab'})
     
 } catch (error) {
     res.status(400).send({msg:'error saving etab'});
@@ -50,7 +50,7 @@ EtabRoute.put('/update/:id',async(req,res)=>{
           { $set: { ...req.body } },
           {new:true} 
         );
-        res.send({ etab: result, msg: "etab updated" });
+        res.send({ etabs: result, msg: "etab updated" });
       } catch (error) {
         res.status(400).send({ msg: "can not modify the etab" });
         console.log(error);

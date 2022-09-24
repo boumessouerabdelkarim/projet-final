@@ -1,16 +1,22 @@
 import React from 'react'
 import {Link} from 'react-router-dom'
 import '../styles/navigateur.css'
+import { useLocation } from 'react-router-dom';
 const Navigation = () => {
+  let location = useLocation();
+  
   return (
+    location.pathname.includes('dashboard') ? null :
+    
     <div className='Navigation'>
-    <Link to='/'> <h1 id='logo'>KARIM DECO</h1></Link>
+      
+    <Link to='/'> <h1 id='logo'>BON PLAN DJERBA</h1></Link>
     <ul className='navigation-ul'>
       
 
         <Link to='/'><li>Accuiel</li></Link>
         
-        
+                
         <Link  to='/Evenements'><li>Evenements</li>
         <ul className='under-list'>
          <Link to='/Evenements/Tous_les_enenements'><li>TOUS LES ÉVÉNEMENTS</li></Link>
@@ -57,6 +63,7 @@ const Navigation = () => {
         </ul>
         </Link>
         
+        <Link to='/dashboard'> <li>dashboard</li></Link>
         
     </ul>
 </div>

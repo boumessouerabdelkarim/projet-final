@@ -1,8 +1,14 @@
 import React from 'react'
 
+
+
 const All_events = () => {
+ 
   return (
-    <div>all_events</div>
+    <div >
+      
+     
+    </div>
   )
 }
 

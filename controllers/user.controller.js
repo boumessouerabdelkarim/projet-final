@@ -4,20 +4,30 @@ const User = require("../models/user");
 
 // get all user
 module.exports.getAllUsers = async (req, res) => {
-    const users = await User.find()
-    // .select("-password");
-    res.status(200).json(users);
+  try {
+       
+    const result= await User.find();
+    res.send({users:result,msg:" all users"}) 
+
+} catch (error) {
+    console.log(error);
+}
   };
   
   //get user by id
-  module.exports.userInfo = (req, res) => {
+  module.exports.userInfo = async(req, res) => {
     if (!ObjectID.isValid(req.params.id))
       return res.status(400).send("ID unknown : " + req.params.id);
   
-    User.findById(req.params.id, (err, docs) => {
-      if (!err) res.send(docs);
-      else console.log("ID unknown : " + err);
-    }).select("-password");
+   try {
+    const result= await User.findById(req.params.id);
+    res.status(200).send({user: result,msg:"user trouve"})
+
+    
+   } catch (error) {
+    console.log(error);
+    
+   }
   };
   // update user 
   module.exports.updateUser = async (req, res) => {
@@ -33,12 +43,9 @@ module.exports.getAllUsers = async (req, res) => {
           }, 
         },
         { new: true, upsert: true, setDefaultsOnInsert: true },
-        // (err, docs) => {
-        //   if (!err) return res.send(docs);
-        //   if (err) return res.status(500).send({ message: err });
-        // }
+       
       );
-      res.send(result)
+      res.send({user:result,msg:"user updated successfully"})
     } catch (err) {
       return res.status(500).json({ message: err });
     }

@@ -1,13 +1,21 @@
 import React, { useState } from "react";
 
-
+import {useDispatch} from 'react-redux'
+import { SignIn, UserRegister } from "../../redux/UserSlice";
 import "./Signup.css";
 const Signup = () => {
-  const [name, setName] = useState("");
-  const [lastName, setLastName] = useState("");
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
- 
+  
+ const [user, setuser] = useState({
+  name:"",
+  lastName:"",
+  email:"",
+  password:"",
+ })
+ const  [login, setlogin] = useState({
+email: "",
+password: "",
+ })
+ const dispatch =useDispatch();
 
   return (
     <div>
@@ -32,13 +40,13 @@ const Signup = () => {
             <div className="sign-in-htm">
               <div className="group">
                 <label htmlFor="user" className="label">
-                  Username
+                  Email
                 </label>
                 <input
                   id="user"
                   type="text"
                   className="input"
-                  onChange={(e) => setEmail(e.target.value)}
+                 onChange={(e)=>setlogin({...login,email:e.target.value})}
                 />
               </div>{" "}
               <div className="group">
@@ -50,32 +58,20 @@ const Signup = () => {
                   type="password"
                   className="input"
                   data-type="password"
-                  onChange={(e) => setPassword(e.target.value)}
+                 onChange={(e)=>setlogin({...login, password:e.target.value})}
                 />
               </div>
-              <div className="group">
-                <input
-                  id="check"
-                  type="checkbox"
-                  className="check"
-                  defaultChecked
-                />
-                <label htmlFor="check">
-                  <span className="icon" /> Keep me Signed in
-                </label>
-              </div>
+              
               <div className="group">
                 <input
                   type="submit"
                   className="button"
                   defaultValue="Sign In"
-                  
+                  onClick={()=>dispatch(SignIn(login))}
                 />
               </div>
-              <div className="hr" />
-              <div className="foot-lnk">
-                <a href="#forgot">Forgot Password?</a>
-              </div>
+              
+              
             </div>
             {/* sign up part */}
             <div className="sign-up-htm">
@@ -87,7 +83,7 @@ const Signup = () => {
                   id="user"
                   type="text"
                   className="input"
-                  onChange={(e) => setName(e.target.value)}
+                  onChange={(e) => setuser({...user,name:e.target.value})}
                 />
               </div>
               <div className="group">
@@ -98,7 +94,7 @@ const Signup = () => {
                   id="user"
                   type="text"
                   className="input"
-                  onChange={(e) => setLastName(e.target.value)}
+                  onChange={(e) => setuser({...user,lastName:e.target.value})}
                 />
               </div>
               <div className="group">
@@ -109,7 +105,7 @@ const Signup = () => {
                   id="pass"
                   type="text"
                   className="input"
-                  onChange={(e) => setEmail(e.target.value)}
+                  onChange={(e) => setuser({...user,email:e.target.value})}
                 />
               </div>
               <div className="group">
@@ -121,7 +117,7 @@ const Signup = () => {
                   type="password"
                   className="input"
                   data-type="password"
-                  onChange={(e) => setPassword(e.target.value)}
+                  onChange={(e) => setuser({...user,password:e.target.value})}
                 />
               </div>
 
@@ -130,13 +126,11 @@ const Signup = () => {
                   type="submit"
                   className="button"
                   defaultValue="Sign Up"
-                 
+                 onClick={() =>dispatch(UserRegister(user))}
                 />
               </div>
               <div className="hr" />
-              <div className="foot-lnk">
-                <label htmlFor="tab-1">Already Member?</label>
-              </div>
+              
             </div>
           </div>
         </div>
