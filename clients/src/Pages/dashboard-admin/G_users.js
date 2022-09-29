@@ -13,7 +13,7 @@ const G_users = () => {
 )
   const [toggleState, setToggleState] = useState(1);
   const utlisateurs = useSelector((state) => state.user.users);
-  console.log({users:utlisateurs})
+
   const toggleTab = (index) => {
     setToggleState(index);
   };
@@ -26,12 +26,7 @@ const G_users = () => {
       >
         <FiUsers/> All users
       </button>
-      <button
-        className={toggleState === 2 ? "tabs active-tabs" : "tabs"}
-        onClick={() => toggleTab(2)}
-      >
-        <FiUserPlus/> Add user
-      </button>
+      
      
     </div>
 
@@ -46,13 +41,7 @@ const G_users = () => {
         
       </div>
 
-      <div
-        className={toggleState === 2 ? "content  active-content" : "content"}
-      >
-       <div >
-
-       </div>
-      </div>
+      
 
       
     </div>

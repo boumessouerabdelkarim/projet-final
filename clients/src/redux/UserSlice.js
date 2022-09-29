@@ -6,7 +6,7 @@ export const UserRegister = createAsyncThunk("user/register", async (user) => {
   try {
     let result = await axios.post("http://localhost:5000/user/register", user);
 
-    return result;
+    return result.data;
   } catch (error) {
     console.log(error);
   }
@@ -16,7 +16,7 @@ export const SignIn = createAsyncThunk("user/login", async (user) => {
   try {
     let result = await axios.post("http://localhost:5000/user/login", user);
 
-    return result;
+    return result.data;
   } catch (error) {
     console.log(error);
   }
@@ -34,20 +34,20 @@ export const UserCurrent = createAsyncThunk("user/current", async () => {
   }
 });
        //get all users
-export const getuser=createAsyncThunk("user/get",async()=>{
+export const getuser=createAsyncThunk("user/getss",async()=>{
   try {
-      let result=axios.get("http://localhost:5000/user");
-      
-      return result;
+      let result=  await axios.get("http://localhost:5000/user");
+      return result.data
+     
   } catch (error) {
       console.log(error)
   }
 });
 
-export const getuserById=createAsyncThunk("user/get/:id",async(id)=>{
+export const getuserById=createAsyncThunk("user/getbyid/:id",async(id)=>{
   try {
-      let result=axios.get(`http://localhost:5000/user/${id}`);
-      return result;
+      let result=await axios.get(`http://localhost:5000/user/${id}`);
+      return  result.data;
   } catch (error) {
       console.log(error)
   }
@@ -56,8 +56,8 @@ export const getuserById=createAsyncThunk("user/get/:id",async(id)=>{
 //delete user
 export const deleteuser =createAsyncThunk("user/delete/:id",async(id)=>{
   try {
-      let result=axios.delete(`http://localhost:5000/user/delete/${id}`);
-      return result;
+      let result= await axios.delete(`http://localhost:5000/user/delete/${id}`);
+      return result.data;
   } catch (error) {
       console.log(error)
   }
@@ -65,12 +65,13 @@ export const deleteuser =createAsyncThunk("user/delete/:id",async(id)=>{
 //update user
 export const updateuser=createAsyncThunk("user/update/:id",async({id,edited})=>{
   try {
-    let result=axios.put(`http://localhost:5000/user/update/${id}`,edited);
-    return result;
+    let result= await axios.put(`http://localhost:5000/user/update/${id}`,edited);
+    return result.data;
   } catch (error) {
     console.log(error)
   }
 });
+
 
 const initialState = {
   user: null,
@@ -86,7 +87,7 @@ export const userSlice = createSlice({
     //add user
     [UserRegister.fulfilled]: (state, action) => {
       state.status = "successe";
-      state.user = action.payload.data.user;
+      state.user = action.payload?.user;
      // localStorage.setItem("token", action.payload.data.token);
     },
     [UserRegister.rejected]: (state) => {
@@ -98,7 +99,7 @@ export const userSlice = createSlice({
 // conect user
     [SignIn.fulfilled]: (state, action) => {
       state.status = "successe";
-      state.user = action.payload.data.user;
+      state.user = action.payload?.user;
       localStorage.setItem("token", action.payload.data.token);
     },
     [SignIn.rejected]: (state) => {
@@ -121,9 +122,9 @@ export const userSlice = createSlice({
     },
     //get users 
     [getuser.fulfilled]: (state, action) => {
-      state.status = "successe";
-      
-      state.users = action.payload?.data.users;
+      state.status = "succesuuuuuhuuse";
+     
+      state.users = action.payload?.users;
     },
     [getuser.rejected]: (state) => {
       state.status = "failed";
@@ -132,15 +133,15 @@ export const userSlice = createSlice({
       state.status = "pending";
     },
     //get user by id
-    [getuser.fulfilled]: (state, action) => {
+    [getuserById.fulfilled]: (state, action) => {
       state.status = "successe";
       
       state.user = action.payload?.user;
     },
-    [getuser.rejected]: (state) => {
+    [getuserById.rejected]: (state) => {
       state.status = "failed";
     },
-    [getuser.pending]: (state) => {
+    [getuserById.pending]: (state) => {
       state.status = "pending";
     },
     //delete user
@@ -154,10 +155,11 @@ export const userSlice = createSlice({
     [deleteuser.pending]: (state) => {
       state.status = "pending";
     },
+    
     //update user
     [updateuser.fulfilled]: (state, action) => {
       state.status = "successe";
-      state.user = action.payload.user;
+      state.user = action.payload?.user;
      
     },
     [updateuser.rejected]: (state) => {

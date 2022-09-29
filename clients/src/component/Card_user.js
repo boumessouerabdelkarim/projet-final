@@ -1,8 +1,10 @@
 import React from 'react'
 import {AiFillDelete}from 'react-icons/ai'
+import { useDispatch } from 'react-redux'
+import { deleteuser } from '../redux/UserSlice'
 import'./user_card.css'
-const Card_user = (user) => {
-  console.log(user)
+const Card_user = ({user}) => {
+ const dispatch = useDispatch()
   return (
     < div className='card-user'>
 
@@ -15,7 +17,7 @@ const Card_user = (user) => {
 {user.telephone?<h3> {`telephone: ${user.telephone}`}</h3>:null}
  </div>
  <div className='user-edited'>
-  <button id='button_supp'><AiFillDelete/></button>
+  <button id='button_supp' onClick={()=>{dispatch(deleteuser(user._id))}} ><AiFillDelete/></button>
   </div>
  </div>
   )

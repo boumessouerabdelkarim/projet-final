@@ -10,7 +10,8 @@ export const Store = configureStore({
     resto:RestoSlice,
     event:EventSlice,
     hotel:HotelSlice,
-    etab:EtabSlice
+    etab:EtabSlice,
+    dem:DemSlice,
     
   },
 })

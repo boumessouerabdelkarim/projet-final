@@ -1,6 +1,7 @@
 const express=require('express')
 const rest = require('../models/restaurant');
 const RestRoute=express.Router()
+const ObjectID = require("mongoose").Types.ObjectId;
 //get all restaurant
 RestRoute.get('/',async(req,res)=>{
     try {let result=await rest.find()
@@ -69,5 +70,52 @@ RestRoute.delete('/delete/:id',async(req,res)=>{
     }
 }
 )
+// comments
+RestRoute.patch('/comment-rest/:id',  async(req, res) => {
+    if (!ObjectID.isValid(req.params.id))
+      return res.status(400).send("ID unknown : " + req.params.id);
+  
+    try {
+      return  await rest.findByIdAndUpdate(
+        req.params.id,
+        {
+          $push: {
+            Comments: {
+              commenterId: req.body.commenterId,
+              commenterPseudo: req.body.commenterPseudo,
+              text: req.body.text,
+            note: req.body.note,
+              timestamp: new Date().getTime(),
+            },
+          },
+        },
+        { new: true })
+              .then((result) => res.send({comments:result}))
+              .catch((err) => res.status(500).send({ message: err }));
+      } catch (err) {
+          return res.status(400).send(err);
+      } });
+ 
+RestRoute.patch('/delete-comment-rest/:id', async(req, res) => {
+    if (!ObjectID.isValid(req.params.id))
+      return res.status(400).send("ID unknown : " + req.params.id);
+  
+    try {
+      return  await rest.findByIdAndUpdate(
+        req.params.id,
+        {
+          $pull: {
+            Comments: {
+              _id: req.body.commentId,
+            },
+          },
+        },
+        { new: true })
+              .then((data) => res.send(data))
+              .catch((err) => res.status(500).send({ message: err }));
+      } catch (err) {
+          return res.status(400).send(err);
+      }
+  });
 
 module.exports=RestRoute

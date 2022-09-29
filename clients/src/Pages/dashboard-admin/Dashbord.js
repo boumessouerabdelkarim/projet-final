@@ -13,8 +13,8 @@ const Dashbord = () => {
    
   return (
     
-      <div class="wrapper">
-    <div class="sidebar">
+      <div className="wrapper">
+    <div className="sidebar">
         <h2>Dashboard</h2>
         <ul>
            
@@ -22,6 +22,7 @@ const Dashbord = () => {
            <Link to='gestion-users'>  <li><FiUsers/> Gestion de utilisteur</li></Link>
            <Link to='gestion-etab'> <li><BiRestaurant/> Gestion de etablissement</li></Link>
            <Link to='gestion-event'> <li><BsFillCalendarEventFill/> Gestion d' Evenements</li></Link>
+           
            <Link to='gestion-demandes'> <li><AiTwotoneFileText/> Gestion des demandes</li></Link>
            <Link to='/'> <li><BiArrowBack/> Retour Accuiel</li></Link>
            <Link>  <li><BiLogOut/> Logout</li></Link>

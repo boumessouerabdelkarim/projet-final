@@ -1,0 +1,87 @@
+.modal_edit {
+   
+    position: fixed; /* Stay in place */
+    z-index: 999; /* Sit on top */
+     /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 95%; /* Full width */
+    height: 95%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    border-radius: 0.5em;
+    margin: 1em 1em;
+
+  }
+  .update-etabs{
+    display: flex;
+    justify-content: flex-end;
+  }
+  #annuler_updat,#update_etab{
+    width: 7rem;
+    height: 3rem;
+    border-radius: 1em;
+    border: 1px solid #ccc;
+    color: #000;
+  }
+  
+  /* Modal Content */
+  .modal_edit-content {
+    position: relative;
+    background-color: #fefefe;
+    margin: auto;
+    padding: 0;
+    border-radius: 0.5em;
+    border: #000 solid 1px;
+
+    width: 100%;
+    height: 100%;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+    
+  }
+  
+ 
+  
+  /* The Close Button */
+  .close_edit {
+    color: white;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+  }
+  
+  .close_edit:hover,
+  .close_edit:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+  }
+  
+  .modal-header {
+    padding: 2px 16px;
+    background-color:#bdb8d7;
+    color: #34495e;
+  }
+  
+  .modal_edit-body {padding: 2px 16px;
+    display: flex;
+    
+ }
+ .donnes_comm{
+  display: flex;
+  flex-direction: column;
+  margin-left: 1rem;
+  width: 45vw;
+  height: 80vh;
+ }
+ .donnes_comm input,textarea {
+  height: 2rem;
+    margin-top: 0.5rem;
+    border-radius: 0.5em;
+    font-size: larger;
+    border: 1px solid #ccc;
+ }
+ .donnes_comm *{
+  margin: 0.5em;
+ }
+  
+ 

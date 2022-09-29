@@ -65,3 +65,5 @@ module.exports.getAllUsers = async (req, res) => {
       return res.status(500).json({ message: err });
     }
   };
+
+  

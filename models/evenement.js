@@ -1,4 +1,5 @@
 const mongoose = require("mongoose");
+const ObjectID = require("mongoose").Types.ObjectId;
 const schema = mongoose.Schema;
 
 const eventschema = new schema({
@@ -10,25 +11,29 @@ const eventschema = new schema({
   },
   prix: { type: String, required: true },
 
-  details: { type: String, required: false },
+  description: { type: String, required: false },
 
-  lien_event: { type: String, required: false },
+  
 
   date_debut: {
-    type: String,
+    type: Date,
     required: true,
   },
   date_fin: {
-    type: String,
+    type: Date,
     required: true,
   },
-  lien_fb: {
+  facebook: {
     type: String,
     required: false,
   },
-  adress: {
-    type: String,
-    required: true,
+  adress: {type:
+    {ville:String,
+      rue:String
+    }
+  
+
+   , required: true,
   },
   logo: {
     type: String,
@@ -40,6 +45,19 @@ const eventschema = new schema({
     required: true,
   },
   telephone: {type: String, required:false, },
+  Comments: {
+    type: [
+      {
+        commenterId: String,
+        commenterPseudo: String,
+        text: String,
+       note:Number,
+        timestamp: String,
+      },   
+    ],
+    required: true,
+  },
+ 
   administrative: {type:String, required:true,default:"admin"}
 
 },{timestamps:true});

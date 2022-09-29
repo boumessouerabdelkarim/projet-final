@@ -27,8 +27,15 @@ const UserSchema = new schema(
       type: String,
       default: "../uplade/user.png",
     },
-    adress: { type: String },
+    adress: {type:
+      {ville:String,
+        rue:String
+      }
+    
+    },
     telephone: { type: String, required: false },
+   facebook_profile: { type: String, required: false },
+   
     is_admin: { type: Boolean, default: false },
   },
   { timestamps: true }

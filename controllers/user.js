@@ -27,7 +27,7 @@ exports.register = async (req, res) => {
       name: newUserToken.name,
     };
     const token = await jwt.sign(payload, process.env.SecretOrKey, {
-      expiresIn: 3600,
+      expiresIn: 60*60*24*3,
     });
     res.status(200).send({
       user: newUserToken,
@@ -61,7 +61,7 @@ exports.login = async (req, res) => {
       name: searchedUser.name,
     };
     const token = await jwt.sign(payload, process.env.SecretOrKey, {
-      expiresIn: 3600,
+      expiresIn: 60*60*24*3,
     });
     // send the user
     res

@@ -20,6 +20,7 @@ app.use('/restaurant',require('./routes/Rest.Route'));
 app.use('/evenements',require('./routes/EventRoute'))
 app.use('/hotels',require('./routes/HotelRoute'))
 app.use('/etablissements',require('./routes/Etab.Route'))
+app.use('/demandes',require('./routes/Dem.Route'))
 
 //connection to server
 app.listen(process.env.PORT, (error)=>error?console.log("server connection failed: ", error):
