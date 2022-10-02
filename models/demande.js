@@ -8,7 +8,7 @@ const demandeschema=new schema(
     Email:{type:String, required:true},
     demande_type:{type:String, required:true},
     title:{type:String, required:true},
-    Address: {type:
+    Adress: {type:
         {ville:String,
           rue:String
         }
@@ -21,7 +21,7 @@ const demandeschema=new schema(
     facebook: { type: String, required: false },
     date_debut: { type: Date, required: false },
     date_fin:{ type: Date, required: false },
-    valide: { type: Boolean, required: true, default: false },
+    valide: { type: String, required: true, default: "en cours de traitement" },
 }
 
 );

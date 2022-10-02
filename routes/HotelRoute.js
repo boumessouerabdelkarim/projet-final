@@ -91,7 +91,7 @@ HotelRoute.patch('/comment-hotel/:id',  async(req, res) => {
           },
         },
         { new: true })
-              .then((result) => res.send({comments:result}))
+              .then((result) => res.send({hotels:result}))
               .catch((err) => res.status(500).send({ message: err }));
       } catch (err) {
           return res.status(400).send(err);

@@ -56,6 +56,24 @@ export const updateEvent=createAsyncThunk("evenements/update/:id",async({id,even
     console.log(error)
   }
 });
+//add a new comment
+export const AddCommentEvent=createAsyncThunk("evenements/comment-event/:id",async({id,comment})=>{
+  try {
+    let result= await axios.patch(`http://localhost:5000/evenements/comment-event/${id}`,comment);
+    return result.data;
+  } catch (error) {
+    console.log(error)
+  }
+});
+//delete comment
+export const DeleteCommentEvent=createAsyncThunk("evenements/delete-comment-event/:id",async({id,Id_comment})=>{
+  try {
+    let result= await axios.patch(`http://localhost:5000/evenements/delete-comment-event/${id}`,Id_comment);
+    return result.data;
+  } catch (error) {
+    console.log(error)
+  }
+});
 const initialState = {
     events: null,
     status: null,
@@ -96,6 +114,16 @@ state.event=action.payload?.Events},
 state.event=action.payload.Events},
     [updateEvent.rejected]: (state) => {state.status="failed"},
     [updateEvent.pending]: (state) => {state.status="pending"},
+   //add a new comment
+   [AddCommentEvent.fulfilled]: (state,action) => {state.status="successe"
+   state.event=action.payload?.Events},
+       [AddCommentEvent.rejected]: (state) => {state.status="failed"},
+       [AddCommentEvent.pending]: (state) => {state.status="pending"},
+//delete comment 
+[DeleteCommentEvent.fulfilled]: (state) => {state.status="successe"},
+   [DeleteCommentEvent.rejected]: (state) => {state.status="failed"},
+   [DeleteCommentEvent.pending]: (state) => {state.status="pending"},
+    
   }
 
 })

@@ -10,6 +10,7 @@ import ReactLoading from "react-loading";
 const G_events = () => {
   const [toggleState, setToggleState] = useState(1);
   const [n_event, setn_event] = useState(null);
+  const [evn, setevn] = useState("all")
   const [adresse, setadresse] = useState(null)
   const dispatch = useDispatch();
   useEffect(() => {
@@ -42,9 +43,55 @@ const G_events = () => {
         <div
           className={toggleState === 1 ? "content  active-content" : "content"}
         >
-          <h1>ALL EVENEMENTS</h1>
+          <h1 className="title_etab">ALL EVENEMENTS</h1>
+          <div className="filtre">
+            <button
+              type="button"
+              className="myButton"
+              onClick={() => setevn("all")}
+            >
+              Tous
+            </button>
+            <button
+              type="button"
+              className="myButton"
+              onClick={() => setevn("soiree")}
+            >
+              Soiree
+            </button>
+            <button
+              type="button"
+              className="myButton"
+              onClick={() => setevn("camping")}
+            >
+             Camping
+            </button>
+            <button
+              type="button"
+              className="myButton"
+              onClick={() => setevn("rondonnees")}
+            >
+              Rondonnees
+            </button>
+            <button
+              type="button"
+              className="myButton"
+              onClick={() => setevn("expositions")}
+            >
+             Expositions
+            </button>
+            <button
+              type="button"
+              className="myButton"
+              onClick={() => setevn("autre")}
+            >
+             Autre
+            </button>
+          </div>
           {evenements ? (
-            evenements.map((el, i) => (
+            evenements.filter((data) =>
+            evn === "all" ? data : data.type.includes(evn)
+          ).map((el, i) => (
               <Card_etab etab={el} x={"event"} key={i} />
             ))
           ) : (
@@ -64,7 +111,7 @@ const G_events = () => {
         >
           <h2>AJOUTER UN EVENEMENT</h2>
           <hr />
-          <div class="modal_edit-body">
+          <div className="modal_edit-body">
             <fieldset className="donnes_comm">
               <legend>Donnes principal:</legend>
               <label>name (*):</label>

@@ -34,7 +34,7 @@ const G_users = () => {
       <div
         className={toggleState === 1 ? "content  active-content" : "content"}
       >
-        <h1>ALL USERS</h1>
+        <h1 className='title_etab'>ALL USERS</h1>
         {utlisateurs?
         utlisateurs.map((el,i)=><Card_user user={el}  key={i}/>):
         <h2 style={{marginTop:150}}>  <ReactLoading type={"spokes"} color={"blue"} height={50} width={50} /> </h2>}

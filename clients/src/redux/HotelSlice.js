@@ -56,6 +56,24 @@ export const updateHotel=createAsyncThunk("hotels/update/:id",async({id,hotel})=
     console.log(error)
   }
 });
+//add a new comment
+export const AddCommentHotel=createAsyncThunk("hotels/comment-hotel/:id",async({id,comment})=>{
+  try {
+    let result= await axios.patch(`http://localhost:5000/hotels/comment-hotel/${id}`,comment);
+    return result.data;
+  } catch (error) {
+    console.log(error)
+  }
+});
+//delete comment
+export const DeleteCommentHotel=createAsyncThunk("hotels/delete-comment-hotel/:id",async({id,Id_comment})=>{
+  try {
+    let result= await axios.patch(`http://localhost:5000/hotels/delete-comment-hotel/${id}`,Id_comment);
+    return result.data;
+  } catch (error) {
+    console.log(error)
+  }
+});
 const initialState = {
    hotels: null,
     status: null,
@@ -97,6 +115,16 @@ state.hotel=action.payload?.hotels
 },
     [updateHotel.rejected]: (state) => {state.status="failed"},
     [updateHotel.pending]: (state) => {state.status="pending"},
+   //add a new comment
+   [AddCommentHotel.fulfilled]: (state,action) => {state.status="successe"
+   state.hotel=action.payload?.hotels},
+       [AddCommentHotel.rejected]: (state) => {state.status="failed"},
+       [AddCommentHotel.pending]: (state) => {state.status="pending"},
+//delete comment 
+[DeleteCommentHotel.fulfilled]: (state) => {state.status="successe"},
+   [DeleteCommentHotel.rejected]: (state) => {state.status="failed"},
+   [DeleteCommentHotel.pending]: (state) => {state.status="pending"},
+    
   }
 
 })

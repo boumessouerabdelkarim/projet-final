@@ -6,7 +6,7 @@ const etabschema=new schema(
     name:{type:String, required:true ,unique:true},
     email:{type:String, required:false, validator:[isEmail]},
     logo:{type:String, required:true,default:'../uplade/autre.jpg'},
-    description:{type:String, required:false, minLength:50},
+    description:{type:String, required:false,},
     adress: {type:
         {ville:String,
           rue:String

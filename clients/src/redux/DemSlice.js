@@ -1,9 +1,9 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
 import axios from 'axios';
  // add a new dem s
- export const addDem = createAsyncThunk("demandes/add", async (dem s) => {
+ export const addDem = createAsyncThunk("demandes/add", async (dem ) => {
     try {
-      let result = await axios.post("http://localhost:5000/demandes/add", dem s);
+      let result = await axios.post("http://localhost:5000/demandes/add", dem );
   
       return result.data;
     } catch (error) {
@@ -71,7 +71,7 @@ const initialState = {
 }
 
 export const DemSlice = createSlice({
-  name: 'demandes',
+  name: 'dem',
   initialState,
   reducers: {},
   extraReducers: {

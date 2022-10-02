@@ -95,7 +95,7 @@ EventRoute.patch("/comment-event/:id", async (req, res) => {
       },
       { new: true }
     )
-      .then((result) => res.send({ event: result }))
+      .then((result) => res.send({ Events: result }))
       .catch((err) => res.status(500).send({ message: err }));
   } catch (err) {
     return res.status(400).send(err);

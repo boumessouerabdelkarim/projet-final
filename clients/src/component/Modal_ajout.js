@@ -141,6 +141,20 @@ const Modal_ajout = ({ setshow1, show1, x }) => {
                     }}
                   />
                 </div>
+                <div>
+                <label>Alcool (*):</label>{" "}
+                  <input
+                    list="alcool"
+                    
+                    onChange={(e) => {
+                      sethot({ ...hot, alcool: e.target.value });
+                    }}
+                  />
+                  <datalist id="alcool">
+                    <option value="oui" />
+                    <option value="non" />
+                  </datalist>
+                </div>
               </div>
             ) : x === "etab" ? (
               <div>
@@ -152,7 +166,7 @@ const Modal_ajout = ({ setshow1, show1, x }) => {
                   <option value="clubs" />
                   <option value="agence de voyage" />
                   <option value="musees" />
-                  <option value="aire de pique nique" />
+                  <option value="emplacement a visite" />
                 </datalist>
                 <div>
                   <label>Heure Ouverture :</label>{" "}
@@ -166,7 +180,7 @@ const Modal_ajout = ({ setshow1, show1, x }) => {
             <label> Logo :</label>
             <div style={{ display: "flex" }}>
               <input type="file" name="image" onChange={(e)=>setfile(e.target.files[0])}  />
-              <input type="button" name="logo_uplaod" value="upload" onClick={()=>uploadImg()} />
+              <input type="button" className="add" name="logo_uplaod" value="upload" onClick={()=>uploadImg()} />
             </div>
 
             <div style={{ display: "flex" }}>
@@ -240,7 +254,7 @@ const Modal_ajout = ({ setshow1, show1, x }) => {
               <button id="annuler_updat" onClick={() => setshow1(!show1)}>
                 Annuler
               </button>
-              <button id="update_etab" onClick={() => {switch (x) {
+              <button className="add" onClick={() => {switch (x) {
                 case "resto":
                     console.log(rest)
                   dispatch(addResto({resto:rest}))

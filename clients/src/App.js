@@ -41,6 +41,7 @@ import G_demandes from './Pages/dashboard-admin/G_demandes';
 import { useDispatch } from 'react-redux';
 import { useEffect } from 'react';
 import { UserCurrent } from './redux/UserSlice';
+import G_demandes_user from './Pages/dashboard-admin/G_demandes_user';
 function App() {
   const isAuth = localStorage.getItem('token');
   const dispatch = useDispatch();
@@ -97,6 +98,8 @@ function App() {
             <Route path="/dashboard/gestion-event" element={<G_events />} />
             <Route path="/dashboard/gestion-users" element={<G_users />} />
             <Route path="/dashboard/gestion-demandes" element={<G_demandes />} />
+            <Route path="/dashboard/gestion-demandes-user" element={<G_demandes_user />} />
+            
           </Route>
 
         </Routes>

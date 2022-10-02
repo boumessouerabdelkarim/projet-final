@@ -56,6 +56,24 @@ export const updateEtab=createAsyncThunk("etablissements/update/:id",async({id,e
     console.log(error)
   }
 });
+//add a new comment
+export const AddCommentEtab=createAsyncThunk("etablissements/comment-etab/:id",async({id,comment})=>{
+  try {
+    let result= await axios.patch(`http://localhost:5000/etablissements/comment-etab/${id}`,comment);
+    return result.data;
+  } catch (error) {
+    console.log(error)
+  }
+});
+//delete comment
+export const DeleteCommentEtab=createAsyncThunk("etablissements/delete-comment-etab/:id",async({id,Id_comment})=>{
+  try {
+    let result= await axios.patch(`http://localhost:5000/etablissements/delete-comment-etab/${id}`,Id_comment);
+    return result.data;
+  } catch (error) {
+    console.log(error)
+  }
+});
 const initialState = {
    etabs: null,
     status: null,
@@ -96,7 +114,16 @@ state.etab=action.payload?.etabs},
 state.etab=action.payload?.etabs},
     [updateEtab.rejected]: (state) => {state.status="failed"},
     [updateEtab.pending]: (state) => {state.status="pending"},
-  }
+   //add a new comment
+    [AddCommentEtab.fulfilled]: (state,action) => {state.status="successe"
+    state.etab=action.payload?.etabs},
+        [AddCommentEtab.rejected]: (state) => {state.status="failed"},
+        [AddCommentEtab.pending]: (state) => {state.status="pending"},
+ //delete comment 
+ [DeleteCommentEtab.fulfilled]: (state) => {state.status="successe"},
+    [DeleteCommentEtab.rejected]: (state) => {state.status="failed"},
+    [DeleteCommentEtab.pending]: (state) => {state.status="pending"},
+      }
 
 })
 

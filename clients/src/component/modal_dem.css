@@ -1,0 +1,67 @@
+.modal_dem {
+   
+    position: fixed; /* Stay in place */
+    z-index: 999; /* Sit on top */
+     /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 70%; /* Full width */
+    height: 70%; /* Full height */
+   
+    border-radius: 0.5em;
+    margin: 5em 20%;
+
+  }
+  .cccc{
+    display: flex;
+    margin: 0 1em;
+  }
+  #add_dem{
+    width: 10rem;
+    height: 3rem;
+    margin-left: 1rem;
+    border-radius: 1em;
+    border: 1px solid #ccc;
+    color: #000;
+  }
+  .bts_dem{
+    margin:1rem 1rem;
+    display: flex;
+    justify-content: flex-end;
+  }
+  .modal_dem input {
+    height: 2rem;
+      margin-top:1rem;
+      margin-left: 1rem;
+      border-radius: 0.5em;
+      font-size: larger;
+      border: 1px solid #ccc;
+      width: 80%;
+   }
+   .close_edit {
+    color: white;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+  }
+  
+  .close_edit:hover,
+  .close_edit:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+  }
+  
+  .modal-header {
+    padding: 2px 16px;
+    background-color:#bdb8d7;
+    color: #34495e;
+  }
+  
+  .modal_edit-body {padding: 2px 16px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    justify-items: center;
+    
+ }

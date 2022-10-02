@@ -56,6 +56,24 @@ export const updateresto=createAsyncThunk("restaurant/update/:id",async({id,res}
     console.log(error)
   }
 });
+//add a new comment
+export const AddCommentResto=createAsyncThunk("restaurant/comment-rest/:id",async({id,comment})=>{
+  try {
+    let result= await axios.patch(`http://localhost:5000/restaurant/comment-rest/${id}`,comment);
+    return result.data;
+  } catch (error) {
+    console.log(error)
+  }
+});
+//delete comment
+export const DeleteCommentResto=createAsyncThunk("restaurant/delete-comment-rest/:id",async({id,Id_comment})=>{
+  try {
+    let result= await axios.patch(`http://localhost:5000/restaurant/delete-comment-rest/${id}`,Id_comment);
+    return result.data;
+  } catch (error) {
+    console.log(error)
+  }
+});
 const initialState = {
     resto: null,
     status: null,
@@ -96,6 +114,16 @@ state.resto=action.payload?.rests},
 state.resto=action.payload?.rests},
     [updateresto.rejected]: (state) => {state.status="failed"},
     [updateresto.pending]: (state) => {state.status="pending"},
+   //add a new comment
+   [AddCommentResto.fulfilled]: (state,action) => {state.status="successe"
+   state.resto=action.payload?.rests},
+       [AddCommentResto.rejected]: (state) => {state.status="failed"},
+       [AddCommentResto.pending]: (state) => {state.status="pending"},
+//delete comment 
+[DeleteCommentResto.fulfilled]: (state) => {state.status="successe"},
+   [DeleteCommentResto.rejected]: (state) => {state.status="failed"},
+   [DeleteCommentResto.pending]: (state) => {state.status="pending"},
+    
   }
 
 })

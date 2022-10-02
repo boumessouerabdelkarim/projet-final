@@ -155,7 +155,7 @@ const Modal_edit = ({ setshow, show, x, el }) => {
                   <option value="clubs" />
                   <option value="agence de voyage" />
                   <option value="musees" />
-                  <option value="aire de pique nique" />
+                  <option value="emplacement a visite" />
                 </datalist>
                 <div>
                   <label>Heure Ouverture :</label>{" "}
@@ -197,7 +197,7 @@ const Modal_edit = ({ setshow, show, x, el }) => {
             <label> Logo :</label>
             <div style={{ display: "flex" }}>
             <input type="file" name="image" onChange={(e)=>setfile(e.target.files[0])}  />
-              <input type="button" name="logo_uplaod" value="upload" onClick={()=>uploadImg()} />
+              <input type="button" name="logo_uplaod" className="add" value="upload" onClick={()=>uploadImg()} />
             </div>
 
             <div style={{ display: "flex" }}>
@@ -271,7 +271,7 @@ const Modal_edit = ({ setshow, show, x, el }) => {
               <button id="annuler_updat" onClick={() => setshow(!show)}>
                 Annuler
               </button>
-              <button id="update_etab" onClick={() => {switch (x) {
+              <button className="add" onClick={() => {switch (x) {
                 case "resto":
                   dispatch(updateresto({id:el._id,res:rest}))
                   break;

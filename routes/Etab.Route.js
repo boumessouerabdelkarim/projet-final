@@ -91,7 +91,7 @@ EtabRoute.patch('/comment-etab/:id',  async(req, res) => {
           },
         },
         { new: true })
-              .then((result) => res.send({etab:result}))
+              .then((result) => res.send({etabs:result}))
               .catch((err) => res.status(500).send({ message: err }));
       } catch (err) {
           return res.status(400).send(err);
@@ -113,7 +113,7 @@ EtabRoute.patch('/delete-comment-etab/:id', async(req, res) => {
           },
         },
         { new: true })
-              .then((result) => res.send({etab:result,msg:"comment supprimee"}))
+              .then((result) => res.send({etabs:result,msg:"comment supprimee"}))
               .catch((err) => res.status(500).send({ message: err }));
       } catch (err) {
           return res.status(400).send(err);

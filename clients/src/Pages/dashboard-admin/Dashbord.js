@@ -24,6 +24,7 @@ const Dashbord = () => {
            <Link to='gestion-event'> <li><BsFillCalendarEventFill/> Gestion d' Evenements</li></Link>
            
            <Link to='gestion-demandes'> <li><AiTwotoneFileText/> Gestion des demandes</li></Link>
+           <Link to='gestion-demandes-user'> <li><AiTwotoneFileText/> Gestion des demandes user </li></Link>
            <Link to='/'> <li><BiArrowBack/> Retour Accuiel</li></Link>
            <Link>  <li><BiLogOut/> Logout</li></Link>
         </ul> 
