@@ -9,7 +9,7 @@ import Lounges_bars from './Pages/vie_nocturne/Lounges_bars'
 import Pool_bars from './Pages/vie_nocturne/Pool_bars'
 import Boites_nuit from './Pages/vie_nocturne/Boites_nuit'
 import Accuiel from './Pages/Accuiel'
-import Evenements from './Pages/Evenements/Evenements'
+import All_events from './Pages/Evenements/All_events'
 import Hotels from './Pages/hotel/Hotels'
 import Grand_hotel from './Pages/hotel/Grand_hotel'
 import Maison_hote from './Pages/hotel/Maison_hote'
@@ -22,7 +22,7 @@ import Aire_pique_nique from './Pages/autres/Aire_pique_nique'
 import Navigation from './component/Navigation';
 
 
-import All_events from './Pages/Evenements/All_events';
+
 import Soirees from './Pages/Evenements/Soirees';
 import Camping from './Pages/Evenements/Camping';
 import Randonnees from './Pages/Evenements/Randonnees';
@@ -42,6 +42,7 @@ import { useDispatch } from 'react-redux';
 import { useEffect } from 'react';
 import { UserCurrent } from './redux/UserSlice';
 import G_demandes_user from './Pages/dashboard-admin/G_demandes_user';
+import Signup from './component/Signup/Signup';
 function App() {
   const isAuth = localStorage.getItem('token');
   const dispatch = useDispatch();
@@ -84,8 +85,8 @@ function App() {
           <Route path="/Restaurants/Restaurant/salon_de_the" element={<Salon_de_the />} />
           <Route path="/Restaurants/Restaurant/patisserie" element={<Patisserie />} />
         // ******************les Routes de Evenements*********************//
-          <Route path="/Evenements" element={<Evenements />} />
-          <Route path="/Evenements/Tous_les_enenements" element={<All_events />} />
+          <Route path="/Evenements" element={<All_events />} />
+          
           <Route path="/Evenements/Soirees" element={<Soirees />} />
           <Route path="/Evenements/Camping" element={<Camping />} />
           <Route path="/Evenements/Randonnees" element={<Randonnees />} />
@@ -101,6 +102,7 @@ function App() {
             <Route path="/dashboard/gestion-demandes-user" element={<G_demandes_user />} />
             
           </Route>
+          <Route path="/signup" element={<Signup />} />
 
         </Routes>
       </div>

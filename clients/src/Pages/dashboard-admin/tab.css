@@ -99,7 +99,8 @@
     font-size: larger;
   }
   .add_etab:hover{
-    background-color:#3c5fa0;
+    background-color:#6995e6;
+    color: #ffffff;
   }
   .add_etab:active{
     position:relative;

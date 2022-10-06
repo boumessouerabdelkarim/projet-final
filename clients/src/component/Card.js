@@ -1,26 +1,42 @@
 import React from "react";
 import '../styles/card.css'
-const Card = () => {
+const Card = ({etab,x}) => {
   return (
     <div className="card">
       
-        <img src="https://www.kharjet.tn/wp-content/uploads/2020/05/PLAN-B-8.jpg" alt="image" />
+        <img src={etab.logo} alt="image" />
       
       <div className="content">
-        <h1>title</h1>
+        <h1>{etab.name}</h1>
         <div className="info">
           <h2>Adress:</h2>
-          <h3>hommet souk</h3>
+          <h3>{etab.adress.ville}</h3>
         </div>
-        
+        {x ==="resto"?
         <div className="info">
           <h2>specialite:</h2>
-          <h3>griades</h3>
-        </div>
+          <h3>{etab.specialite}</h3>
+        </div>:
+        x==="hotel"?
         <div className="info">
-          <h2>budget:</h2>
-          <h3>8 dt</h3>
-        </div>
+        <h2>Nombre d'etoiles: </h2>
+        <h3>{etab.nb_etoile}</h3>
+      </div> :
+      x==="event"?
+     <><div className="info">
+      <h2>Organiser par:</h2>
+      <h3>{etab.organization}</h3>
+    
+    </div>
+    <div className="info">
+    <h2>Date:</h2>
+    <h3>{etab.date_debut} jusqu'a {etab.date_fin}</h3>
+  </div>
+  </>:null
+  
+  }
+    
+        
       </div>
       <div className="menu"></div>
     </div>

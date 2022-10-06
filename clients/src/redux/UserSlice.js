@@ -5,8 +5,9 @@ import axios from "axios";
 export const UserRegister = createAsyncThunk("user/register", async (user) => {
   try {
     let result = await axios.post("http://localhost:5000/user/register", user);
-
+    window.location = "/";
     return result.data;
+    
   } catch (error) {
     console.log(error);
   }
@@ -15,7 +16,7 @@ export const UserRegister = createAsyncThunk("user/register", async (user) => {
 export const SignIn = createAsyncThunk("user/login", async (user) => {
   try {
     let result = await axios.post("http://localhost:5000/user/login", user);
-
+    window.location = "/";
     return result.data;
   } catch (error) {
     console.log(error);

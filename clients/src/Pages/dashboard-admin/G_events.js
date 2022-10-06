@@ -6,12 +6,22 @@ import { useDispatch, useSelector } from "react-redux";
 import { addEvent, getallEvent } from "../../redux/EventSlice";
 import Card_etab from "../../component/Card_etab";
 import ReactLoading from "react-loading";
+import axios from "axios";
 
 const G_events = () => {
   const [toggleState, setToggleState] = useState(1);
   const [n_event, setn_event] = useState(null);
   const [evn, setevn] = useState("all")
-  const [adresse, setadresse] = useState(null)
+  const [file, setfile] = useState("")
+  const uploadImg=async()=>{
+    const form=new FormData();
+    form.append('file', file);
+    form.append('upload_preset',"bonplan")
+  await axios.post('https://api.cloudinary.com/v1_1/dr8zd6kj2/upload',form)
+  .then((result)=>{
+      setn_event({...n_event,logo:result.data.secure_url})}).catch((err)=>console.log(err))
+  
+   }
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(getallEvent());
@@ -164,8 +174,8 @@ const G_events = () => {
 
               <label> Logo :</label>
               <div style={{ display: "flex" }}>
-                <input type="file" name="image" />
-                <input type="button" name="logo_uplaod" value="upload" />
+                <input type="file" name="image"  onChange={(e)=>setfile(e.target.files[0])} />
+                <input type="button" name="logo_uplaod" value="upload" className="add" onClick={()=>uploadImg()} />
               </div>
 
               <div style={{ display: "flex" }}>
@@ -176,7 +186,7 @@ const G_events = () => {
                   name="ville"
                   placeholder="ville"
                   onChange={(e) =>
-                    setadresse({  ...adresse, ville: e.target.value })
+                    setn_event({ ...n_event, adress: {...n_event.adress,ville: e.target.value}} )
                   }
                 />
                 <datalist id="ville">
@@ -191,11 +201,11 @@ const G_events = () => {
                   name="address"
                   placeholder="exemple :21 rue mohmed badra"
                   onChange={(e) =>
-                    setadresse({ ...adresse, rue: e.target.value })
+                    setn_event({ ...n_event, adress: {...n_event.adress,ville: e.target.value}} )
                   }
                 />
               </div>
-              <button id="add_event" onClick={(e)=>{setn_event({...n_event,adress:adresse});dispatch(addEvent(n_event))}}>
+              <button id="add_event"  className="add" onClick={(e)=>{dispatch(addEvent(n_event))}}>
                 
                 <span> enregistrer</span>
               </button>

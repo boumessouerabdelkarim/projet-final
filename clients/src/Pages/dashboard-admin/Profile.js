@@ -6,6 +6,7 @@ import { updateuser } from "../../redux/UserSlice";
 import './profile.css';
 const Profile = () => {
   const current = useSelector((state) => state.user?.user);
+  console.log(current)
  const [upd, setupd] = useState(null)
  const [file, setfile] = useState("")
  const dispatch = useDispatch();

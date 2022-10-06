@@ -21,8 +21,9 @@ a {
 .login-wrap {
   width: 100%;
   margin: auto;
+  z-index: 111;
   max-width: 525px;
-  min-height: 670px;
+  min-height: 80vh;
   position: relative;
   background: url(https://raw.githubusercontent.com/khadkamhn/day-01-login-form/master/img/bg.jpg)
     no-repeat center;
@@ -164,4 +165,12 @@ a {
 }
 .foot-lnk {
   text-align: center;
+}
+.button:hover{
+  background-color:#909eb8;
+  color: #ffffff;
+}
+.button:active{
+  position:relative;
+  top:1px;
 }

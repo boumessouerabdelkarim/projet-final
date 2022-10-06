@@ -10,7 +10,7 @@ const Navigation = () => {
     
     <div className='Navigation'>
       
-    <Link to='/'> <h1 id='logo'>BON PLAN DJERBA</h1></Link>
+    <Link to='/'> <h1 id='logo'>BON PLAN </h1></Link>
     <ul className='navigation-ul'>
       
 
@@ -19,7 +19,7 @@ const Navigation = () => {
                 
         <Link  to='/Evenements'><li>Evenements</li>
         <ul className='under-list'>
-         <Link to='/Evenements/Tous_les_enenements'><li>TOUS LES ÉVÉNEMENTS</li></Link>
+         
           <Link to='/Evenements/Soirees'><li>SOIRÉES</li></Link>
           <Link to='/Evenements/Camping'><li>CAMPINGS</li></Link>
           <Link  to='/Evenements/Randonnees'><li>RANDONNÉES</li></Link>
@@ -64,6 +64,7 @@ const Navigation = () => {
         </Link>
         
         <Link to='/dashboard'> <li>dashboard</li></Link>
+        <Link to='/signup'> <li>Login</li></Link>
         
     </ul>
 </div>
