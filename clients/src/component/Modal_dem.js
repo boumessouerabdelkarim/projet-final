@@ -6,6 +6,7 @@ const Modal_dem = ({ x2 ,show2,setshow2}) => {
   const [dem, setdem] = useState(null)
   const current = useSelector((state) => state.user?.user);
   const dispatch = useDispatch();
+ 
   return (
     <div className="modal_dem">
       <div className="modal_edit-content">
@@ -18,7 +19,7 @@ const Modal_dem = ({ x2 ,show2,setshow2}) => {
           </h2>
         </div>
         <div className="modal_edit-body"></div>
-        {setdem({...dem,User_id:current._id})}
+        
         <div className="cccc">
           <input type="text" placeholder="Nom" onChange={(e)=>setdem({...dem,name:e.target.value})} />
           <input type="text" placeholder="Prenom" onChange={(e)=>setdem({...dem,lastName:e.target.value})} />
@@ -29,7 +30,7 @@ const Modal_dem = ({ x2 ,show2,setshow2}) => {
         </div>
         {(x2 === "etablissement") ? (
           <div>
-            {setdem({...dem,demande_type:x2})}
+           
              <div className="cccc">
             <input type="text" placeholder="Nom d'etablissement" onChange={(e)=>setdem({...dem,title:e.target.value})}  />
             <input list="resto" placeholder="categorie" onChange={(e)=>setdem({...dem,type:e.target.value})}  />
@@ -62,7 +63,7 @@ const Modal_dem = ({ x2 ,show2,setshow2}) => {
           </div>
         ) : (
           <div> 
-              {setdem({...dem,demande_type:2})}
+             
             <div class="cccc">
              <input type="text" placeholder="Nom d'etablissement" onChange={(e)=>setdem({...dem,title:e.target.value})}  />
             <input list="event" placeholder="type de l'evenement" onChange={(e)=>setdem({...dem,type:e.target.value})}  />
@@ -79,7 +80,7 @@ const Modal_dem = ({ x2 ,show2,setshow2}) => {
 
               <input type="date" name="date" placeholder="date fin" onChange={(e)=>setdem({...dem,date_fin:e.target.value})}  />
             </div>
-            <input type="url" placeholder="lien facebook"  onChange={(e)=>setdem({...dem,facebook:e.target.value})} />
+            <input type="url" placeholder="lien facebook" style={{marginLeft:" 3rem",width:"95%"}} onChange={(e)=>setdem({...dem,facebook:e.target.value})} />
           </div>
         )}
         
@@ -111,12 +112,17 @@ const Modal_dem = ({ x2 ,show2,setshow2}) => {
                 />
             
               </div>
-              <input type="text" className="inn" placeholder="prix ou budget" onChange={(e)=>setdem({...dem,prix:e.target.value})}/>
+              <input type="text" className="inn" style={{marginLeft:" 3rem",width:"95%"}} placeholder="prix ou budget" onChange={(e)=>setdem({...dem,prix:e.target.value})}/>
               <div className="bts_dem">
-              <button id="add_dem" onClick={() => setshow2(!show2)}>
+              <button style={{ width: "7rem ",
+  height:"3rem",
+  borderRadius:"1rem",
+  border:" 1px solid #ccc", marginRight:"0.5rem"}} onClick={() => setshow2(!show2)}>
                 Annuler
               </button>
-              <button id="add_dem" onClick={() => { dispatch(addDem({dem:dem}));setshow2(!show2)}} > Sauvgarder</button>
+              <button className="add" onClick={() => { 
+ 
+   dispatch(addDem({dem:{...dem,User_id:current._id,demande_type:x2}}));setshow2(!show2)}} > Sauvgarder</button>
               </div>
       </div>
      

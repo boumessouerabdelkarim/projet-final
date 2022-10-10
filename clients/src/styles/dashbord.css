@@ -35,11 +35,13 @@
     font-weight: 700;
     border-bottom: 2px solid rgba(0,0,0,0.05);
     border-top: 2px solid rgba(255,255,255,0.05);
+    text-decoration: none;
   }    
   
-  .wrapper .sidebar ul li a{
+  .wrapper .sidebar ul a{
     color: #34495e;
     display: block;
+  
     
   }
   

@@ -106,7 +106,7 @@ RestRoute.patch('/delete-comment-rest/:id', async(req, res) => {
         {
           $pull: {
             Comments: {
-              _id: req.body.commentId,
+              _id: req.body.Id_comment,
             },
           },
         },

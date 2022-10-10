@@ -5,7 +5,7 @@ import axios from "axios";
 export const UserRegister = createAsyncThunk("user/register", async (user) => {
   try {
     let result = await axios.post("http://localhost:5000/user/register", user);
-    window.location = "/";
+   console.log(result.data)
     return result.data;
     
   } catch (error) {
@@ -16,7 +16,7 @@ export const UserRegister = createAsyncThunk("user/register", async (user) => {
 export const SignIn = createAsyncThunk("user/login", async (user) => {
   try {
     let result = await axios.post("http://localhost:5000/user/login", user);
-    window.location = "/";
+   console.log(result.data)
     return result.data;
   } catch (error) {
     console.log(error);
@@ -77,13 +77,15 @@ export const updateuser=createAsyncThunk("user/update/:id",async({id,edited})=>{
 const initialState = {
   user: null,
   status: null,
-  users: null,
+  users: [],
 };
 
 export const userSlice = createSlice({
   name: "user",
   initialState,
-  reducers: {},
+  reducers: {
+    logout:(state)=>localStorage.removeItem('token')
+  },
   extraReducers: {
     //add user
     [UserRegister.fulfilled]: (state, action) => {
@@ -101,7 +103,7 @@ export const userSlice = createSlice({
     [SignIn.fulfilled]: (state, action) => {
       state.status = "successe";
       state.user = action.payload?.user;
-      localStorage.setItem("token", action.payload.data.token);
+      localStorage.setItem("token", action.payload.token);
     },
     [SignIn.rejected]: (state) => {
       state.status = "failed";
@@ -174,5 +176,6 @@ export const userSlice = createSlice({
 });
 
 // Action creators are generated for each case reducer function
+export const { logout} = userSlice.actions
 
 export default userSlice.reducer;

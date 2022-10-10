@@ -1,12 +1,15 @@
 import React from 'react'
-import {Link} from 'react-router-dom'
+import { useDispatch } from 'react-redux'
+import {Link, useLocation} from 'react-router-dom'
+import { logout } from '../redux/UserSlice'
 import '../styles/navigateur.css'
-import { useLocation } from 'react-router-dom';
+
 const Navigation = () => {
-  let location = useLocation();
-  
+  const location=useLocation()
+  const isAuth=localStorage.getItem('token')
+  const dispatch = useDispatch();
   return (
-    location.pathname.includes('dashboard') ? null :
+   location.pathname.includes("dashboard") ?null :
     
     <div className='Navigation'>
       
@@ -57,14 +60,14 @@ const Navigation = () => {
          <Link to='/Autres/agence_voyage'><li>AGENCE DE VOYAGE</li></Link>
           <Link to='/Autres/musees'><li>MUSEES</li></Link>
 
-          <Link to='/Autres/aire_pique_nique'><li>AIRE DE PIQUE NIQUE</li></Link>
+          <Link to='/Autres/aire_pique_nique'><li>LES ENDROITS A VISITER</li></Link>
 
         
         </ul>
         </Link>
         
-        <Link to='/dashboard'> <li>dashboard</li></Link>
-        <Link to='/signup'> <li>Login</li></Link>
+     { isAuth?  <Link to='/dashboard/profile'> <li>dashboard</li></Link>:null}
+     { isAuth? <Link to='/'> <li onClick={()=>{dispatch(logout());}}>Logout</li></Link>:<Link to='/signup'> <li>Login</li></Link>}
         
     </ul>
 </div>

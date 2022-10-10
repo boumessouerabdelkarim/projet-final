@@ -1,10 +1,10 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
 import axios from 'axios';
  // add a new dem s
- export const addDem = createAsyncThunk("demandes/add", async (dem ) => {
+ export const addDem = createAsyncThunk("demandes/add", async ({dem} ) => {
     try {
       let result = await axios.post("http://localhost:5000/demandes/add", dem );
-  
+  console.log(result.data);
       return result.data;
     } catch (error) {
       console.log(error);
@@ -48,9 +48,10 @@ export const deleteDem =createAsyncThunk("demandes/delete/:id",async(id)=>{
   }
 });
 //update dem 
-export const updateDem=createAsyncThunk("demandes/update/:id",async({id,dem })=>{
+export const updateDem=createAsyncThunk("demandes/updateee/:id",async({id,edit })=>{
+  console.log(edit)
   try {
-    let result=await axios.put(`http://localhost:5000/demandes/update/${id}`,dem );
+    let result=await axios.put(`http://localhost:5000/demandes/update/${id}`,edit);
     return result.data;
   } catch (error) {
     console.log(error)
@@ -100,8 +101,9 @@ state.dem =action.payload?.dems},
     [deleteDem.rejected]: (state) => {state.status="failed"},
     [deleteDem.pending]: (state) => {state.status="pending"},
     //updateDems
-    [updateDem.fulfilled]: (state,action) => {state.status="successe"
-state.dem =action.payload.dems},
+    [updateDem.fulfilled]: (state,action) => {
+      state.status="successe"
+      state.dem =action.payload?.dems},
     [updateDem.rejected]: (state) => {state.status="failed"},
     [updateDem.pending]: (state) => {state.status="pending"},
     //valide demand

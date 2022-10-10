@@ -21,11 +21,11 @@ const etabschema=new schema(
     facebook:{type:String, required:false},
     Comments: { type: [
         {
-          commenterId:String,
-          commenterPseudo: String,
-          text: String,
-         note:Number,
-          timestamp: Number,
+          commenterId:String  ,
+          commenterPseudo: String, 
+          text: String  ,
+         note:Number  ,
+          timestamp:Number,
         }
       ], required:true },
     

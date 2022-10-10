@@ -8,7 +8,7 @@ const Bar_search = () => {
         placeholder="Mot clé"
         name="motclesidebar"
         id="motclesidebar"
-        autocomplete="off"
+        autoComplete="off"
       />
      
       <div className="form-group">

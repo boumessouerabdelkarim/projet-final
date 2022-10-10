@@ -8,11 +8,13 @@ import Card_etab from "../../component/Card_etab";
 import ReactLoading from "react-loading";
 import axios from "axios";
 
-const G_events = () => {
+
+const G_events = ({sett,t}) => {
   const [toggleState, setToggleState] = useState(1);
   const [n_event, setn_event] = useState(null);
-  const [evn, setevn] = useState("all")
+  const [evn, setevn] = useState("soiree")
   const [file, setfile] = useState("")
+ 
   const uploadImg=async()=>{
     const form=new FormData();
     form.append('file', file);
@@ -22,10 +24,11 @@ const G_events = () => {
       setn_event({...n_event,logo:result.data.secure_url})}).catch((err)=>console.log(err))
   
    }
+   const [k, setk] = useState(false)
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(getallEvent());
-  }, []);
+  }, [k]);
   const evenements = useSelector((state) => state.event.events);
 
   const toggleTab = (index) => {
@@ -55,13 +58,7 @@ const G_events = () => {
         >
           <h1 className="title_etab">ALL EVENEMENTS</h1>
           <div className="filtre">
-            <button
-              type="button"
-              className="myButton"
-              onClick={() => setevn("all")}
-            >
-              Tous
-            </button>
+           
             <button
               type="button"
               className="myButton"
@@ -100,9 +97,9 @@ const G_events = () => {
           </div>
           {evenements ? (
             evenements.filter((data) =>
-            evn === "all" ? data : data.type.includes(evn)
+             data.type.includes(evn)
           ).map((el, i) => (
-              <Card_etab etab={el} x={"event"} key={i} />
+              <Card_etab etab={el} x={"event"} sett={sett} t={t} setk={setk} k={k} key={i} />
             ))
           ) : (
             <h2 style={{ marginTop: 150 }}>
@@ -205,7 +202,8 @@ const G_events = () => {
                   }
                 />
               </div>
-              <button id="add_event"  className="add" onClick={(e)=>{dispatch(addEvent(n_event))}}>
+            
+              <button id="add_event"  className="add" onClick={(e)=>{dispatch(addEvent(n_event));sett(!t)}}>
                 
                 <span> enregistrer</span>
               </button>

@@ -29,6 +29,7 @@ DemRoute.get('/:id',async(req,res)=>{
 
 //add(post)
 DemRoute.post('/add',async(req,res) => {
+  console.log(req.body)
 try {let newrest=new dem(req.body);
     let result=await newrest.save();
     res.send({dems:result,msg:'add new dem'})

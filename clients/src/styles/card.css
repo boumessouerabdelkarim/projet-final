@@ -1,18 +1,37 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@1,100&display=swap');
+
 .card{
 width: 90%;
 height: 20rem;
     margin: 1rem auto;
-    font-family: 'Roboto';
+   
 
     -webkit-box-shadow: 0px 10px 13px -7px #000000, 2px 4px 17px 5px rgba(17,4,122,0.23); 
     box-shadow: 0px 10px 13px -7px #000000, 2px 4px 17px 5px rgba(17,4,122,0.23);
     display: flex;
 
 }
+.menu>*{
+    margin-inline: auto;
 
-.card .content h1 {font-size: 3rem;
-    text-transform: uppercase;}
+}
+.menu a{
+    margin-top: 2rem;
+    font-size: 1rem;
+    font-weight: 600;
+
+}
+.menu a:hover{
+    color: blue;
+    
+}
+.tttt{
+    font-size: 1rem;
+    font-weight: 600;
+    
+}
+.card .content h1 {font-size: 2rem;
+    text-transform: uppercase;
+text-align: center;}
 
  .card img{
     width: 30%;
@@ -31,17 +50,17 @@ height: 20rem;
 }
 .card .info{
     display: flex;
-    border: #000 1px solid ;
-    justify-content: flex-start;
     
+    justify-content: flex-start;
+    align-items: center;
     margin: .3rem ;
 
 }
-.card .info h3{color: #1d9c3b !important;}
-.card .content h1,h2,h3{
+.card .info  h3{color: #1d9c3b !important;}
+.card .content h1,.card .content h2,.card .content h3{
     padding: 0;
     margin-left: .2rem;
-    font-family: 'Roboto', sans-serif;
+   
 }
 .card .menu{
     display: flex;

@@ -1,0 +1,35 @@
+.desc_site{
+    position: relative;
+    
+    display: flex;
+
+    flex-direction: column;
+    
+    word-wrap: break-word;
+    background-color: #fff;
+    background-clip: border-box;
+    
+  margin-left: 2rem;  
+
+
+}
+.desc_site h1{
+    font-size: 35px;
+    font-weight: 800 !important;
+    margin-bottom: 1.5rem;
+}
+.desc_site p{
+    margin-top: 0.5rem;
+    margin-bottom: 1rem;
+    font-size: 20px;
+    font-weight: 600 !important;
+
+    color: black;
+    
+}
+.video {
+    width: 100%;
+    height: 40rem;
+    object-fit: cover;
+  }
+  

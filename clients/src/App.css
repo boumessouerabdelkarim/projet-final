@@ -9,8 +9,7 @@
   min-height:calc(100vh - 7rem);
   background-color: #ffffff;
 }
-.video {
-  width: 100vw;
-  height: 100vh;
-  object-fit: cover;
+
+a{
+  text-decoration: none;
 }

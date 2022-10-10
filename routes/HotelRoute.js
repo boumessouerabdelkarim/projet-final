@@ -107,7 +107,7 @@ HotelRoute.patch('/delete-comment-hotel/:id', async(req, res) => {
         {
           $pull: {
             Comments: {
-              _id: req.body.commentId,
+              _id: req.body.Id_comment,
             },
           },
         },

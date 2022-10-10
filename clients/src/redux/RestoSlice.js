@@ -68,7 +68,7 @@ export const AddCommentResto=createAsyncThunk("restaurant/comment-rest/:id",asyn
 //delete comment
 export const DeleteCommentResto=createAsyncThunk("restaurant/delete-comment-rest/:id",async({id,Id_comment})=>{
   try {
-    let result= await axios.patch(`http://localhost:5000/restaurant/delete-comment-rest/${id}`,Id_comment);
+    let result= await axios.patch(`http://localhost:5000/restaurant/delete-comment-rest/${id}`,{Id_comment});
     return result.data;
   } catch (error) {
     console.log(error)

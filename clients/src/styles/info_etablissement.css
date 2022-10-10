@@ -1,0 +1,68 @@
+.info_etab{
+    width: 70vw;
+    
+    margin: 2rem auto;
+    display: flex;
+    flex-direction: column;
+}
+.info_etab img{
+    margin: 1rem 2rem ;
+    border-radius: 1rem;
+    box-shadow:  0px 0px 14px 1px #80808091;
+    width: 95%;
+    height: 35rem;
+}
+.info_etab h1{
+    font-size: 3rem;
+    font-weight: 700;
+    margin-left: 2rem;
+    color: #e9b99e;
+    font-family: "fangsong";
+}
+.info_etab h2{
+    margin-top: 2rem;
+    font-size: 2rem;
+    font-weight: 700;
+    margin-left: 2rem;
+}
+.bbbbb h3{
+    font-size: 1rem;
+    font-weight: 700;
+    margin: 7px;
+    margin-top: 1rem;
+}
+.aaaaa{
+    display: flex;
+    
+    margin-top: 2rem;
+}
+.bbbbb{
+    display: flex;
+    margin-left: 2rem;
+    
+    align-items: center;
+}
+.info_etab a{
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    margin-left: 3rem;
+    font-size: 1rem;
+    font-weight: 700;
+}
+.info_etab a:hover{
+    color: blue;
+}
+.info_etab h4{
+    font-size: 1.5rem;
+    margin-left: 2rem;
+    margin-top: 2rem;
+
+    font-weight: 700;
+}
+.info_etab p{
+    margin-left: 2rem;
+    margin-top: 1rem;
+    font-size: 1rem;
+    font-weight: 700;
+    margin-bottom: 2rem;
+}

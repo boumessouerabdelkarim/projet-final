@@ -1,13 +1,27 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { AiTwotoneFileText } from 'react-icons/ai';
+import { useDispatch, useSelector } from 'react-redux';
+import Card_demmande from '../../component/Card_demmande';
+import { getallDem } from '../../redux/DemSlice';
+import { getuser } from '../../redux/UserSlice';
+
 import './tab.css'
 
 const G_demandes = () => {
   const [toggleState, setToggleState] = useState(1);
-
+const [d, setd] = useState(false)
   const toggleTab = (index) => {
     setToggleState(index);
   };
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(getallDem())
+    dispatch(getuser())
+    
+  }, [d]);
+  const dems = useSelector((state) => state.dem?.dems);
+ 
+  
   return (
     <div className="container-tabs">
     <div className="bloc-tabs">
@@ -30,24 +44,26 @@ const G_demandes = () => {
       <div
         className={toggleState === 1 ? "content  active-content" : "content"}
       >
-        <h2>Content 1</h2>
-        <hr />
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati
-          praesentium incidunt quia aspernatur quasi quidem facilis quo nihil
-          vel voluptatum?
-        </p>
+               <h1 className=" title_etab">LES DEMANDES D'AJOUT DES ETABLISSEMENT</h1>
+               <div className="filtre_dem">
+               {
+    dems ?
+    dems?.filter((data)=>data?.demande_type.includes("etablissement"))
+    .map((data,i)=><Card_demmande setd={setd} d={d} dem={data}  key={i}/>):<h1>Aucun demendes pour l'instant</h1>
+  }
+</div>
       </div>
 
       <div
         className={toggleState === 2 ? "content  active-content" : "content"}
       >
-        <h2>Content 2</h2>
-        <hr />
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente
-          voluptatum qui adipisci.
-        </p>
+               <h1 className=" title_etab">LES DEMANDES D'AJOUT DES EVENEMENTS</h1>
+               <div className="filtre_dem">
+               {
+    dems ?
+    dems?.filter((data)=>data?.demande_type.includes("evenement"))
+    .map((data,i)=><Card_demmande setd={setd} d={d} dem={data} key={i}/>):<h1>Aucun demendes pour l'instant</h1>
+  }</div>
       </div>
 
       

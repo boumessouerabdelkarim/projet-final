@@ -8,7 +8,11 @@ import { deleteresto } from '../redux/RestoSlice'
 import { deleteEtab } from '../redux/EtabSlice'
 import './card_etab.css'
 import Modal_edit from './Modal_edit'
-const Card_etab = ({etab,x}) => {
+
+
+
+const Card_etab = ({etab,x,t,sett}) => {
+
   const el=etab
   const [show, setshow] = useState(false)
  
@@ -18,7 +22,7 @@ const Card_etab = ({etab,x}) => {
   return (
     
     < div className='card-etab'>
-       {show?<Modal_edit show={show} setshow={setshow} x={x}el={el}/>:null}
+       {show?<Modal_edit show={show} setshow={setshow} sett={sett}  t={t} x={x}el={el}/>:null}
     
      <img className='log-etab' src={el.logo} alt='photo profile' />
      
@@ -26,7 +30,7 @@ const Card_etab = ({etab,x}) => {
     <h1><span>Name: </span> <span>{el.name} </span>  </h1>
     <h3><span>Type: </span> <span>{el.type}</span> </h3>
    {el.email? <h3><span>Email: </span> <span>{el.email}</span> </h3>:null}
-    {el.adress?<h3> <span>Adress:</span><span>{el.adress.ville}</span></h3>:null}
+    {el.adress?<h3> <span>Adress:</span><span>{el.adress.ville}</span>,<span>{el.adress.rue}</span></h3>:null}
     {el.telephone?<h3> <span>Telephone:</span><span>{el.telephone}</span></h3>:null}
      </div>
      <div className='etab-edited'>
@@ -35,15 +39,23 @@ const Card_etab = ({etab,x}) => {
 switch (x) {
   case "resto":
     dispatch(deleteresto(el._id));
+    sett(!t);
+   
     break;
   case "hotel":
     dispatch(deleteHotel(el._id));
+    sett(!t);
+    
     break;
   case "etab":
      dispatch(deleteEtab(el._id));
-    break;
+    sett(!t);
+    
+     break;
   case "event":
     dispatch(deleteEvent(el._id));
+    sett(!t);
+    
     break;
 }
       }}><AiFillDelete/></button>

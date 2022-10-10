@@ -102,6 +102,10 @@
     background-color:#6995e6;
     color: #ffffff;
   }
+  .filtre_dem{
+    display: flex;
+    flex-wrap: wrap;
+  }
   .add_etab:active{
     position:relative;
     top:1px;

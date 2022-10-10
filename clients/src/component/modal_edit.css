@@ -73,7 +73,7 @@
   width: 45vw;
   height: 80vh;
  }
- .donnes_comm input,textarea {
+ .donnes_comm input,.donnes_comm textarea {
   height: 2rem;
     margin-top: 0.5rem;
     border-radius: 0.5em;

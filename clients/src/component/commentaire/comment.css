@@ -1,0 +1,88 @@
+.comment{
+    width: 95%;
+height: 25rem;
+margin: 1rem 2rem ;
+   border-radius: 0.5rem;
+
+   background: #e1e1e9;
+    display: flex;
+    flex-direction: column;
+
+}
+#supp_comment{
+    border-radius:0.5rem;
+    
+    margin-left: 90%;
+    align-items: center;
+    width: 2rem;
+    height: 2rem;
+    
+}
+#supp_comment:hover {
+    
+    color: red;
+  }
+  #supp_comment:active {
+    position:relative;
+    top:1px;
+  }
+
+.com_info{
+    width: 95%;
+    height: 15rem;
+    margin: 0.5rem 2rem ;
+    border-radius: 1rem;
+ 
+    background: #e1e1e9;
+     display: flex;
+     flex-direction: column;
+
+}
+#ppp{
+    margin-left: 4rem;
+    font-size: 1rem;
+}
+.com_info p,.com_info h3{
+    margin-top: 0.5rem;
+    margin-left: 5rem; 
+}
+#ggg{
+    margin-left: 80%;
+    margin-top: 0.5rem;
+}
+#nom{
+    margin-left:3rem;
+    font-size: 1.5rem;
+}
+.comment h3,.comment textarea{
+    margin-top: 1rem;
+    margin-left: 3rem;
+}
+.rate{
+   
+    margin-left: 3rem;  
+}
+.comment textarea{
+    width: 90%; 
+    height: 10rem;
+    border-radius: 0.25rem;
+}
+.add_avis{
+    transition: .5s;
+    display: block;
+    border-radius: .5em;
+    background-color: #39be39;
+    margin: auto;
+    cursor: pointer;
+    font-size: 1rem;
+    color: white;
+    height: 3rem;
+    width: 10rem;
+}
+.add_avis:hover {
+    background-color:#458f20;
+  }
+  .add_avis:active {
+    position:relative;
+    top:1px;
+  }

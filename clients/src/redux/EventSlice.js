@@ -67,8 +67,9 @@ export const AddCommentEvent=createAsyncThunk("evenements/comment-event/:id",asy
 });
 //delete comment
 export const DeleteCommentEvent=createAsyncThunk("evenements/delete-comment-event/:id",async({id,Id_comment})=>{
+  console.log(id)
   try {
-    let result= await axios.patch(`http://localhost:5000/evenements/delete-comment-event/${id}`,Id_comment);
+    let result= await axios.patch(`http://localhost:5000/evenements/delete-comment-event/${id}`,{Id_comment});
     return result.data;
   } catch (error) {
     console.log(error)

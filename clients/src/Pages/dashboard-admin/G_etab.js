@@ -2,16 +2,17 @@ import React, { useEffect, useState } from "react";
 import { BiHotel, BiRestaurant } from "react-icons/bi";
 import { MdOutlineOtherHouses } from "react-icons/md";
 import { useDispatch, useSelector } from "react-redux";
-import { getallEtab } from "../../redux/EtabSlice";
-import { getallHotel } from "../../redux/HotelSlice";
-import { getallresto } from "../../redux/RestoSlice";
+
 
 import Card_etab from "../../component/Card_etab";
 import ReactLoading from "react-loading";
 import "./tab.css";
 import Modal_ajout from "../../component/Modal_ajout";
 
-const G_etab = () => {
+
+
+
+const G_etab = ({sett,t}) => {
   const [toggleState, setToggleState] = useState(1);
   const [show1, setshow1] = useState(false);
   const [rest, setrest] = useState("all");
@@ -19,12 +20,7 @@ const G_etab = () => {
   const [aut, setaut] = useState("all")
   const [x, setx] = useState(null);
   const dispatch = useDispatch();
-  useEffect(() => {
-    dispatch(getallresto());
-    dispatch(getallHotel());
 
-    dispatch(getallEtab());
-  }, []);
   const restaurant = useSelector((state) => state.resto.restos);
 
   const hotels = useSelector((state) => state.hotel.hotels);
@@ -120,7 +116,7 @@ const G_etab = () => {
                   ? data.type.includes("salon de the ")
                   : data.type.includes("lounges bars"||"beach bars"||"pool bars"||"boite de nuits")
               )
-              .map((el, i) => <Card_etab etab={el} x={"resto"} key={i} />)
+              .map((el, i) => <Card_etab sett={sett} t={t} etab={el} x={"resto"} key={i} />)
           ) : (
             <h2 style={{ marginTop: 150 }}>
               {" "}
@@ -183,7 +179,7 @@ const G_etab = () => {
               .filter((data) =>
                 hot === "all" ? data : data.type.includes(hot)
               )
-              .map((el, i) => <Card_etab etab={el} x={"hotel"} key={i} />)
+              .map((el, i) => <Card_etab sett={sett} t={t} etab={el} x={"hotel"} key={i} />)
           ) : (
             <h2 style={{ marginTop: 150 }}>
               {" "}
@@ -251,7 +247,7 @@ const G_etab = () => {
             autre.filter((data) =>
             aut === "all" ? data : data.type.includes(aut)
           )
-          .map((el, i) => <Card_etab etab={el} x={"etab"} key={i} />)
+          .map((el, i) => <Card_etab sett={sett} t={t} etab={el} x={"etab"} key={i} />)
           ) : (
             <h2 style={{ marginTop: 150 }}>
               {" "}
@@ -265,7 +261,7 @@ const G_etab = () => {
           )}
         </div>
       </div>
-      {show1 ? <Modal_ajout setshow1={setshow1} show1={show1} x={x} /> : null}
+      {show1 ? <Modal_ajout setshow1={setshow1} sett={sett} t={t} show1={show1} x={x} /> : null}
     </div>
   );
 };

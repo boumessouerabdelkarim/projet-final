@@ -15,7 +15,7 @@ const hotelschema = new schema(
     alcool: { type:String, required: true },
     description: { type: String, required: false },
     photos: { type: [String], required: false },
-    commodites: { type: [String], required: false },
+    commodites: { type: [String], required: false }, 
     facebook: { type: String, required: false },
     site_web_url: { type: String, required: false },
     email: { type: String, required: false },

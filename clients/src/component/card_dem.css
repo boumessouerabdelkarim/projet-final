@@ -1,0 +1,31 @@
+.card_dem{
+    width: 35vw;
+    height: 25rem;
+    background-color: rgb(253, 253, 253);
+    align-items:flex-start;
+   display: flex;
+   margin: 1rem 1rem;
+   flex-direction: column;
+    border-radius: 1rem;
+    box-shadow: 0px 5px 10px #1687d933;
+    border: 1px solid rgb(137, 137, 255);
+}
+
+.orange-border{
+    border: 3px solid orange;
+}
+.vert-border{
+    border: 3px solid green;
+}
+.red-border{
+    border: 3px solid red;
+}
+.card_dem h3,.card_dem h4, .card_dem h2{
+    margin:0.5rem 1.5rem;
+
+}
+.card_dem h1{
+    text-align: center;
+    margin-bottom: 1.5rem;
+    margin-inline: auto;
+}

@@ -108,7 +108,7 @@ EtabRoute.patch('/delete-comment-etab/:id', async(req, res) => {
         {
           $pull: {
             Comments: {
-              _id: req.body.commentId,
+              _id: req.body.Id_comment,
             },
           },
         },

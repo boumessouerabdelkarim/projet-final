@@ -27,7 +27,7 @@ display: flex;
 flex-direction: column;
 
 }
-.etab-description h1,h3{
+.etab-description h1,.etab-description h3{
     font: 0.5em ;
     color: #000;
 }
@@ -45,15 +45,32 @@ flex-direction: column;
     align-items: center;
     width: 3rem;
     height: 3rem;
-    color: red;
+   
     
 }
+.button_supp:hover {
+    
+    color: red;
+  }
+  .button_supp:active {
+    position:relative;
+    top:1px;
+  }
 #button_edit{
     border-radius: 1rem;
     border: none;
     align-items: center;
     width: 3rem;
     height: 3rem;
-    color: green;
+    
     
 }
+
+#button_edit:hover {
+    
+    color: green;
+  }
+  #button_edit:active {
+    position:relative;
+    top:1px;
+  }

@@ -80,6 +80,9 @@ EventRoute.patch("/comment-event/:id", async (req, res) => {
     return res.status(400).send("ID unknown : " + req.params.id);
 
   try {
+
+
+   
     return await Event.findByIdAndUpdate(
       req.params.id,
       {
@@ -89,7 +92,7 @@ EventRoute.patch("/comment-event/:id", async (req, res) => {
             commenterPseudo: req.body.commenterPseudo,
             text: req.body.text,
             note: req.body.note,
-            timestamp: new Date().getTime(),
+            timestamp: new Date(),
           },
         },
       },
@@ -103,6 +106,7 @@ EventRoute.patch("/comment-event/:id", async (req, res) => {
 });
 //supprimer comment
 EventRoute.patch("/delete-comment-event/:id", async (req, res) => {
+  console.log(req.body.Id_comment)
   if (!ObjectID.isValid(req.params.id))
     return res.status(400).send("ID unknown : " + req.params.id);
 
@@ -112,7 +116,7 @@ EventRoute.patch("/delete-comment-event/:id", async (req, res) => {
       {
         $pull: {
           Comments: {
-            _id: req.body.commentId,
+            _id: req.body.Id_comment,
           },
         },
       },

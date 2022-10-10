@@ -4,9 +4,9 @@ import { useDispatch, useSelector } from "react-redux";
 
 import { updateuser } from "../../redux/UserSlice";
 import './profile.css';
-const Profile = () => {
+const Profile = ({sett,t}) => {
   const current = useSelector((state) => state.user?.user);
-  console.log(current)
+ 
  const [upd, setupd] = useState(null)
  const [file, setfile] = useState("")
  const dispatch = useDispatch();
@@ -29,27 +29,27 @@ await axios.post('https://api.cloudinary.com/v1_1/dr8zd6kj2/upload',form)
       <div className="info_perso">
         <div className="info_per">
           <label>Nom :</label>
-          <input type="text" value={current.name} onChange={(e)=>setupd({...upd,name:e.target.value})}/>
+          <input type="text" value={current?.name} onChange={(e)=>setupd({...upd,name:e.target.value})}/>
         </div>
         <div className="info_per">
           <label>Prenom :</label>
-          <input type="text" value={current.lastName}onChange={(e)=>setupd({...upd,lastName:e.target.value})} />
+          <input type="text" value={current?.lastName}onChange={(e)=>setupd({...upd,lastName:e.target.value})} />
         </div>
         <div className="info_per">
           <label>Email :</label>
-          <input type="email" value={current.email} onChange={(e)=>setupd({...upd,email:e.target.value})}/>
+          <input type="email" value={current?.email} onChange={(e)=>setupd({...upd,email:e.target.value})}/>
         </div>
         <div className="info_per">
           <label>Mot de passe:</label>
-          <input type="password" value={current.password} onChange={(e)=>setupd({...upd,password:e.target.value})} />
+          <input type="password" value={current?.password} onChange={(e)=>setupd({...upd,password:e.target.value})} />
         </div>
 
         <h3>Image de profile :</h3>
         <div className="info_per up ">
-          <img src={current.photo} alt="img_profile" />
+          <img src={current?.photo} alt="img_profile" />
          <div className="upload_img">
             <input type="file"   accept=".jpg, .jpeg, .png"  onChange={(e)=>setfile(e.target.files[0])}/>
-            <button onClick={()=>uploadImg()}>upload</button> 
+            <button  className="add" onClick={()=>uploadImg()}>upload</button> 
           </div> 
          
         </div>
@@ -61,24 +61,25 @@ await axios.post('https://api.cloudinary.com/v1_1/dr8zd6kj2/upload',form)
           
           <>
             <label>Ville :</label>
-            <input type="text" value={current.adress?.ville}
+            <input type="text" value={current?.adress?.ville}
             onChange={(e)=> setupd({ ...upd, adress: {...upd.adress,ville: e.target.value} })} />
           </>
           <>
             <label>Rue :</label>
-            <input type="text" value={current.adress?.rue} 
+            <input type="text" value={current?.adress?.rue} 
              onChange={ (e)=>setupd({ ...upd, adress: {...upd.adress,rue: e.target.value} })}/>
           </>
         </div>
         <div className="info_per">
           <label>Fb profile :</label>
-          <input type="url" value={current.facebook} onChange={(e)=>setupd({...upd,facebook:e.target.value})} />
+          <input type="url" value={current?.facebook} onChange={(e)=>setupd({...upd,facebook:e.target.value})} />
         </div>
         <div className="info_per">
           <label>Telephone :</label>
-          <input type="text" value={current.telephone} onChange={(e)=>setupd({...upd,telephone:e.target.value})} />
+          <input type="text" value={current?.telephone} onChange={(e)=>setupd({...upd,telephone:e.target.value})} />
         </div>
-        <button className="upp" onClick={()=>dispatch(updateuser({id:current._id,edited:upd}))}>Update profile</button>
+        
+        <button className="add upp" onClick={()=>{dispatch(updateuser({id:current?._id,edited:upd}));sett(!t)}}>Update profile</button>
       </div>
     </div>
   );

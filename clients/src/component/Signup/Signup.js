@@ -4,7 +4,7 @@ import {useDispatch} from 'react-redux'
 import { SignIn, UserRegister } from "../../redux/UserSlice";
 import "./Signup.css";
 const Signup = () => {
-  
+  const isAuth = localStorage.getItem("token");
  const [user, setuser] = useState({
   name:"",
   lastName:"",
@@ -67,10 +67,12 @@ password: "",
                   type="submit"
                   className="button"
                   defaultValue="Sign In"
-                  onClick={()=>dispatch(SignIn(login))}
+                  onClick={()=>{dispatch(SignIn(login));setTimeout(() => {
+                    window.location.reload()
+                  }, 1200);} }
                 />
               </div>
-              
+              {isAuth?window.location = "/":null}
               
             </div>
             {/* sign up part */}
@@ -126,7 +128,9 @@ password: "",
                   type="submit"
                   className="button"
                   defaultValue="Sign Up"
-                 onClick={() =>dispatch(UserRegister(user))}
+                 onClick={() =>{dispatch(UserRegister(user));setTimeout(() => {
+                  window.location = "/"
+                }, 1200);}}
                 />
               </div>
               <div className="hr" />

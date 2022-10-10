@@ -6,10 +6,13 @@ import { updateEvent } from "../redux/EventSlice";
 import { updateHotel } from "../redux/HotelSlice";
 import { updateresto } from "../redux/RestoSlice";
 import "./modal_edit.css";
-const Modal_edit = ({ setshow, show, x, el }) => {
+
+
+
+const Modal_edit = ({ setshow, show, x, el,sett,t}) => {
  
  console.log(el._id) 
- const [rest, setrest] = useState(null);
+ const [rest, setrest] = useState(el);
   const [etabs, setetabs] = useState(null);
   const [hot, sethot] = useState(null);
   const [even, seteven] = useState(null);
@@ -28,17 +31,17 @@ const Modal_edit = ({ setshow, show, x, el }) => {
    }
  const dispatch =useDispatch();
   return (
-    <div class="modal_edit">
-      <div class="modal_edit-content">
-        <div class="modal-header">
-          <span class="close_edit" onClick={() => setshow(!show)}>
+    <div className="modal_edit">
+      <div className="modal_edit-content">
+        <div className="modal-header">
+          <span className="close_edit" onClick={() => setshow(!show)}>
             &times;
           </span>
           <h2>
             <span>Editer</span> <span>{el.name}</span>
           </h2>
         </div>
-        <div class="modal_edit-body">
+        <div className="modal_edit-body">
           <fieldset className="donnes_comm">
             <legend>Donnes principal:</legend>
             <label>name (*):</label>
@@ -274,16 +277,25 @@ const Modal_edit = ({ setshow, show, x, el }) => {
               <button className="add" onClick={() => {switch (x) {
                 case "resto":
                   dispatch(updateresto({id:el._id,res:rest}))
+                  sett(!t)
+                  setshow(!show)
                   break;
                   case "etab":
                   dispatch(updateEtab({id:el._id,eta:etabs}))
-                    break;
+                  sett(!t)
+                  setshow(!show)  
+                  break;
                     case "hotel":
                   dispatch(updateHotel({id:el._id,hotel:hot}))
+                  sett(!t)
+                  setshow(!show)
                   break;
                   case "event":
                     dispatch(updateEvent({id:el._id,event:even}))
-                  
+                    
+                    setshow(!show)
+                    sett(!t)
+                    
                   break;
                 
               }
